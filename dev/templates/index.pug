@@ -1,0 +1,138 @@
+extends template/main
+block content
+	header.head
+		a.head-logo
+			+img('logo_gbglis.svg')
+		button.head-mdl
+			+img('logo_mdl.svg')
+		button.head-njh
+			span NJH
+		button.head-user
+			span bbogomolnik
+		a(href='/login').head-logout
+			span Logout
+	main.body
+		section
+			.info-bar
+				.client
+					h2.client-name JOHNSON MEDICAL CLINIC
+					button(type="button").client-change Change
+				.client-actions
+					button(type="button").button Client Info
+					.select
+						input(type='hidden')
+						button.select-head.button
+							span
+								strong Physician:&nbsp;
+								| ATCHASON, ELIZABETH
+							+img('caret_down.svg')
+						.select-body
+							button(data-value='1').select-option
+								strong Physician:&nbsp;
+								| ATCHASON, ANNA
+							button(data-value='2').select-option
+								strong Physician:&nbsp;
+								| ATCHASON, BETH
+							button(data-value='3').select-option
+								strong Physician:&nbsp;
+								| ATCHASON, ELIZABETH
+				ul.client-tasks
+					li
+						strong MDL#
+						span 36474711
+					li
+						strong Date Entered:
+						span 3/18/21
+					li
+						strong Tests Status:
+						span Pending
+					li
+						strong Case#’s:
+						span 21-G000001, 21-S000002
+				.client-view
+					span View Only
+			.start
+				h2.start-title
+					span Start Accesioning
+				form.start-center
+					.start-left
+						.start-left-top
+							+img('scan.png')
+							.start-left-top-text
+								strong First Step:
+								span Scan req QR code
+						.start-left-bottom
+							+img('req_example.jpg')
+							span Core OB/GYN
+					.start-right
+						.form
+							h5.form-title Client Info
+							.form-select
+								h6.form-select-title Client ID | Physician
+								.select
+									input(type='hidden')
+									button(type='button').select-head.button
+										span 10560 | YU, ERIN
+										+img('caret_down.svg')
+									.select-body
+										button(type='button').select-option 10560 | YU, ERIN
+										button(type='button').select-option 11560 | YU, ERIN
+										button(type='button').select-option 10561 | YU, ERIN
+										button(type='button').select-option 10565 | YU, ERIN
+							.form-dis
+								h6.form-dis-title.bold Discrepancies
+								.form-dis-row
+									.checkbox
+										input(type='checkbox')#report
+										label(for='report')
+											span
+											span Additional report needs to be added.
+									input(type='text')
+								.form-dis-row
+									.checkbox
+										input(type='checkbox')#new
+										label(for='new')
+											span
+											span New Account to be added to dMDL.
+									input(type='text')
+								.form-dis-row
+									.checkbox
+										input(type='checkbox')#spec
+										label(for='spec')
+											span
+											span No Physician Specified.
+									input(type='text')
+								.form-dis-row.bold
+									span Signature
+									.radio
+										input(type='radio' name='sign' checked)#sign-yes
+										label(for='sign-yes')
+											span
+											span Yes
+									.radio
+										input(type='radio' name='sign')#sign-no
+										label(for='sign-no')
+											span
+											span No
+								.form-dis-row.bold
+									span Send Report to:
+									.checkbox
+										input(type='checkbox')#report-rwj
+										label(for='report-rwj')
+											span
+											span RWJ Hospital
+									.checkbox
+										input(type='checkbox')#report-md
+										label(for='report-md')
+											span
+											span Archer Smith, MD
+					.start-button-block
+						button.start-button
+							span Next
+			.bag.active
+				.bag-title-row
+					h2.bag-title New Bag
+					button.button.cancel Cancel
+					button.button.hold Hold
+	footer.foot
+		+inc('js','front.js')

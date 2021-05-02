@@ -1,0 +1,478 @@
+body
+	background-color: $main-bgc
+.body
+	height: calc(100vh - 40px)
+	position: relative
+	overflow: hidden
+
+@keyframes fadeIn
+	from
+		opacity: 0
+@keyframes rotate
+	to
+		transform: rotate(360deg)
+
+.button
+	min-width: 137px
+	padding: 10px 15px
+	font-size: 16px
+	color: #505556
+	background-color: #fff
+	border: 1px solid #939AA0
+	border-radius: 4px
+	transition: .35s
+	&:hover
+		background-color: $head-bgc
+		color: #fff
+.select
+	position: relative
+	&-head
+		@extend %dfi
+		width: 100%
+		img
+			width: 7px
+			height: 7px
+			transition: .5s ease
+	&-body
+		@extend %df
+		width: 100%
+		max-height: 0
+		overflow: auto
+		flex-direction: column
+		position: absolute
+		transition: .5s
+		top: 40px
+	&-option
+		margin-top: 3px
+		padding: 10px 15px
+		border-radius: 4px
+		background-color: #fff
+		text-align: left
+		transition: .35s
+		&:hover
+			background-color: $head-bgc
+			color: #fff
+	&.active
+		.select
+			&-head
+				img
+					transform: rotate(180deg)
+			&-body
+				max-height: 195px
+.checkbox
+	label
+		span:first-child
+			+wh(16px)
+			border-radius: 2px
+.radio
+	label
+		span:first-child
+			+wh(14px)
+			border-radius: 100%
+			&:before
+				border-radius: 100%
+.checkbox,.radio
+	label
+		@extend %dfa
+		white-space: pre
+		span:first-child
+			@extend %dfc
+			margin-right: 15px
+			border: 1px solid #939AA0
+			&:before
+				+af
+				+wh(calc(100% - 4px))
+				transition: .35s ease
+	input:checked ~ label span:first-child
+		&:before
+			background-color: #657690
+
+
+
+.login
+	+wh(100vw,100vh)
+	background-color: $head-bgc
+	&-col
+		padding-top: 50px
+		padding-left: 75px
+		position: relative
+		z-index: 1
+	&-logo
+		@extend %dfa
+		height: 89px
+		margin-bottom: 190px
+		img
+			height: 100%
+	&-form
+		display: flex
+		flex-direction: column
+		align-items: center
+		position: absolute
+		left: calc(50% - 175px + 47px)
+		top: calc(50% - (255px / 2))
+		z-index: 1
+		&-input
+			+wh(350px,67px)
+			margin-top: 17px
+			padding: 0 30px
+			border-radius: 34px
+			background-color: #fff
+			font-family: $f_italic
+			color: #838889
+			font-size: 18px
+		&-submit
+			+wh(200px,54px)
+			@extend %dfc
+			margin-top: 33px
+			border-radius: 4px
+			background-color: #30435F
+			font-family: $f_normal
+			font-size: 24px
+			color: #fff
+			transition: .35s ease
+			&:hover
+				transform: scale(1.03)
+				box-shadow: 5px 5px 10px rgba(#000,.3)
+			&:active
+				box-shadow: inset 5px 5px 10px rgba(#000,.3)
+				transform: scale(.97)
+	&-bgc
+		+wh(759px)
+		overflow: hidden
+		position: absolute
+		top: calc(50% - (759px / 2)) //137px
+		right: calc(50% - 427px)
+		img
+			+wh(100%)
+			animation: rotate 60s linear infinite
+	&-mdl
+		+wh(90px,74px)
+		position: absolute
+		z-index: 1
+		bottom: 60px
+		right: 30px
+		img
+			+wh(100%)
+.version
+	&-number
+		margin-left: 30px
+		color: #F5F7F9
+	&-title
+		margin-bottom: 11px
+		font-family: $f_italic
+		font-size: 18px
+		color: #AAB5C5
+	&-text
+		width: 423px
+		min-height: calc(100vh - 556px)
+		padding: 28px 45px 28px 33px
+		background-color: #546681
+		border: 1px solid #A9AEB7
+		p
+			line-height: 1.6
+			color: #F6F7F9
+
+
+
+.head
+	@extend %dfa
+	height: 40px
+	background-color: $head-bgc
+	&, &-logo,&-mdl,&-njh,&-user
+		color: $white
+	&-logo
+		@extend %dfa
+		margin-left: 45px
+		margin-right: 26px
+		&:after
+			+af
+			+wh(2px,26px)
+			margin-left: 26px
+			background-color: #8995A8
+	&-mdl
+		margin-right: 26px
+	&-njh
+	&-user,&-logout
+		padding: 0 45px
+		&:before
+			margin-right: 10px
+			font-family: 'icons'
+			font-variant: normal
+			text-transform: none
+	&-user
+		@extend %dfa
+		margin-left: auto
+		&:before
+			content: '\55'
+			font-size: 24px
+	&-logout
+		@extend %dfa
+		height: 40px
+		padding: 0 45px
+		background-color: $main-bgc
+		color: $head-bgc
+		&:before
+			content: '\53'
+			font-size: 20px
+
+.info-bar
+	@extend %dfa
+
+
+.start
+	padding-top: 100px
+	&-center
+		@extend %df
+		flex-wrap: wrap
+		align-items: flex-start
+		justify-content: center
+		margin-top: 105px
+	&-title
+		font-size: 33px
+		text-align: center
+		&:after
+			+af
+			+wh(715px,3px)
+			margin: 15px auto 0
+			background: linear-gradient(to right, rgba(101,118,144,0) 0%,rgba(101,118,144,1) 50%,rgba(101,118,144,0) 100%)
+	&-left
+		width: 326px
+		margin-left: 100px
+		&-top
+			@extend %df
+			padding-left: 20px
+			align-items: flex-start
+			img
+				height: 65px
+			&-text
+				@extend %df
+				margin-left: 10px
+				flex-direction: column
+				align-items: flex-start
+				strong
+					font-family: $f_bold
+					font-size: 14px
+				span
+					margin-top: 5px
+					font-size: 18px
+					font-family: $f_italic
+		&-bottom
+			@extend %dfa
+			margin-top: 30px
+			padding: 30px 0
+			flex-direction: column
+			border: 1px solid
+			border-radius: 10px
+			position: relative
+			&:before
+				+af
+				+wh(20px,30px)
+				border-left: 1px solid
+				border-right: 1px solid
+				position: absolute
+				top: -29px
+			&,&:before
+				background-color: #fff
+				border-color: #C0C5CA
+			img
+				box-shadow: 0 0 15px 10px rgba($black,.1)
+			span
+				margin-top: 20px
+				font-size: 18px
+				color: #6F7E97
+				font-family: $f_bold
+	&-right
+		margin-left: 170px
+		position: relative
+		&:before
+			+af
+			+wh(230px,1px)
+			background-color: #939AA0
+			position: absolute
+			left: -230px
+			top: 20px
+		.form
+			width: 638px
+			padding: 26px 45px 40px
+			border-radius: 10px
+			border: 1px solid #939AA0
+			background-color: #EEF1F4
+			&-title
+				margin-bottom: 20px
+				transform: translateX(-10px)
+				font-family: $f_bold
+				font-size: 20px
+				color: #657690
+			&-select
+				&-title
+					margin-bottom: 5px
+					font-size: 16px
+					color: #C0C5CA
+				.select
+					width: 400px
+			&-dis
+				margin-top: 20px
+				&-title
+					margin-bottom: 20px
+					&.bold
+						font-family: $f_bold
+						font-size: 16px
+						color: rgba($black,.7)
+				&-row
+					@extend %dfa
+					margin-top: 18px
+					padding-left: 10px
+					&.bold
+						margin-top: 28px
+						padding-left: 0
+						font-family: $f_bold
+						font-size: 16px
+						color: rgba($black,.7)
+						.checkbox,.radio
+							margin-left: 20px
+							label
+								span:first-child
+									margin-right: 10px
+					input[type='text']
+						width: 100%
+						margin-left: 10px
+						border-bottom: 1px solid #939AA0
+	&-button
+		+wh(200px,54px)
+		border-radius: 4px
+		background-color: #449E9F
+		color: #fff
+		font-family: $f_bold
+		font-size: 24px
+		&-block
+			text-align: center
+			flex: 0 0 100%
+			margin-top: 43px
+
+.info-bar
+	padding: 5px 0
+	background-color: #fff
+.client
+	@extend %dfa
+	padding-right: 60px
+	padding-left: 45px
+	&-name
+		&:before
+			font-family: 'icons'
+			content: '\50'
+			margin-right: 10px
+			display: inline-block
+		font-size: 20px
+		font-weight: 500
+	&-change
+		margin-left: 20px
+		text-decoration: underline
+		color: #449e9f
+		font-size: 16px
+		&:hover
+			text-decoration: none
+	&-actions
+		@extend %dfa
+		margin-right: 45px
+		&>.button
+			margin-right: 10px
+		.select
+			width: 320px
+			font-size: 14px
+			strong
+				font-family: $f_bold
+				font-size: 16px
+	&-tasks
+		@extend %dfa
+		li
+			@extend %df
+			margin-right: 15px
+			padding-right: 15px
+			flex-direction: column
+			position: relative
+			&:after
+				+af
+				+wh(2px,100%)
+				background-color: #B7BBBE
+				border-radius: 1px
+				position: absolute
+				right: 0
+				top: 0
+			&:last-child
+				margin-right: 0
+				padding-right: 0
+				&:after
+					content: none
+			strong
+				font-family: $f_bold
+	&-view
+		@extend %dfa
+		margin-left: auto
+		margin-right: 100px
+		font-family: $f_italic
+		&:before
+			margin-right: 10px
+			content: '\L'
+			display: block
+			font-size: 20px
+			color: #505556
+			font-family: "icons"
+
+
+.bag
+	+wh(calc(100% - 20px),calc(100% - 70px))
+	margin: 0 auto
+	padding: 10px
+	background-color: #fff
+	opacity: 0
+	visibility: hidden
+	transform: translateY(100%)
+	position: absolute
+	left: 0
+	right: 0
+	top: 60px
+	transition: .5s
+	&.active
+		opacity: 1
+		visibility: visible
+		transform: none
+	&-title
+		margin-right: auto
+		font-size: 20px
+		font-family: $f_bold
+		&-row
+			@extend %dfa
+			.button
+				font-family: $f_bold
+			.cancel
+				@extend %dfc
+				margin-right: 10px
+				&:before
+					margin-right: 5px
+					content: '\X'
+					font-family: 'icons'
+					font-size: 13px
+					color: $red
+					transition: .35s
+				&:hover
+					&:before
+						color: #fff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

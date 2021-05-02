@@ -1,0 +1,23 @@
+extends template/main
+block content
+	main
+		section.login
+			.login-col
+				.login-logo
+					+img('logo_gbglis.svg')
+					span.version-number v.1.01
+				.version-desc
+					.version-title
+						span Version Notes: 10/7/20
+					.version-text
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+			form.login-form
+				input(name='login' type='text' placeholder='Username').login-form-input
+				input(name='password' type='password' placeholder='Password').login-form-input
+				a(href='/index').login-form-submit Login
+			.login-bgc
+				+img('login_bg.jpg')
+			.login-mdl
+				+img('logo_mdl.svg')
+	footer
+		+inc('js','front.js')

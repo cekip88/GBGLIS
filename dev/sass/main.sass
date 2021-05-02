@@ -1,0 +1,88 @@
+@import "../../../../core/mixins/reset"
+@import "../../../../core/mixins/mixins"
+@import "vars"
+$dpx: 14px
+$font_body: 14px
+
+@font-face
+	font-family: 'icons'
+	src: url('fonts/icons.eot?88680419')
+	src: url('fonts/icons.eot?88680419#iefix') format('embedded-opentype'),
+	url('fonts/icons.woff2?88680419') format('woff2'),
+	url('fonts/icons.woff?88680419') format('woff'),
+	url('fonts/icons.ttf?88680419') format('truetype'),
+	url('fonts/icons.svg?88680419#icons') format('svg')
+	font-weight: normal
+	font-style: normal
+
+
+@font-face
+	font-family: 'roboto'
+	src: url('fonts/Roboto-Regular-webfont.eot')
+	src: url('fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/Roboto-Regular-webfont.woff') format('woff'),
+	url('fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+	url('fonts/Roboto-Regular-webfont.svg#robotoregular') format('svg')
+	font-weight: normal
+	font-style: normal
+
+
+@font-face
+	font-family: 'roboto-italic'
+	src: url('fonts/Roboto-Italic-webfont.eot')
+	src: url('fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/Roboto-Italic-webfont.woff') format('woff'),
+	url('fonts/Roboto-Italic-webfont.ttf') format('truetype'),
+	url('fonts/Roboto-Italic-webfont.svg#roboto') format('svg')
+	font-weight: normal
+	font-style: italic
+
+
+@font-face
+	font-family: 'roboto-normal'
+	src: url('fonts/Roboto-Medium-webfont.eot')
+	src: url('fonts/Roboto-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/Roboto-Medium-webfont.woff') format('woff'),
+	url('fonts/Roboto-Medium-webfont.ttf') format('truetype'),
+	url('fonts/Roboto-Medium-webfont.svg#roboto') format('svg')
+	font-weight: 500
+	font-style: normal
+
+
+@font-face
+	font-family: 'roboto-bold'
+	src: url('fonts/Roboto-Bold-webfont.eot')
+	src: url('fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+	url('fonts/Roboto-Bold-webfont.woff') format('woff'),
+	url('fonts/Roboto-Bold-webfont.ttf') format('truetype'),
+	url('fonts/Roboto-Bold-webfont.svg#roboto') format('svg')
+	font-weight: bold
+	font-style: normal
+
+
+.set,body
+	+wh(100%)
+body
+	+font($font_body,$f_reg,#505556)
+	min-height: 100vh
+	overflow-x: hidden
+
+input,button
+	font-family: inherit
+	font-size: inherit
+	background-color: transparent
+	border: none
+button,label,input[type='submit'],input[type='button'],input[type='checkbox'],input[type='radio']
+	cursor: pointer
+input[type='radio'],input[type='checkbox']
+	display: none
+// -==[ Медиа ]==-
+@import "media/m"
+//+mq(440px)
+//	@import "media/ml"
+//+mq(740px)
+//	@import "media/t"
+//+mq(1000px)
+//	@import "media/tl"
+//+mq(1170px)
+//	@import "media/d"

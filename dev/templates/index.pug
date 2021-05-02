@@ -27,13 +27,13 @@ block content
 								| ATCHASON, ELIZABETH
 							+img('caret_down.svg')
 						.select-body
-							button(data-value='1').select-option
+							button(data-value='1').select-option.button
 								strong Physician:&nbsp;
 								| ATCHASON, ANNA
-							button(data-value='2').select-option
+							button(data-value='2').select-option.button
 								strong Physician:&nbsp;
 								| ATCHASON, BETH
-							button(data-value='3').select-option
+							button(data-value='3').select-option.button
 								strong Physician:&nbsp;
 								| ATCHASON, ELIZABETH
 				ul.client-tasks
@@ -75,10 +75,10 @@ block content
 										span 10560 | YU, ERIN
 										+img('caret_down.svg')
 									.select-body
-										button(type='button').select-option 10560 | YU, ERIN
-										button(type='button').select-option 11560 | YU, ERIN
-										button(type='button').select-option 10561 | YU, ERIN
-										button(type='button').select-option 10565 | YU, ERIN
+										button(type='button').select-option.button 10560 | YU, ERIN
+										button(type='button').select-option.button 11560 | YU, ERIN
+										button(type='button').select-option.button 10561 | YU, ERIN
+										button(type='button').select-option.button 10565 | YU, ERIN
 							.form-dis
 								h6.form-dis-title.bold Discrepancies
 								.form-dis-row
@@ -129,10 +129,256 @@ block content
 					.start-button-block
 						button.start-button
 							span Next
-			.bag.active
+			.bag
 				.bag-title-row
 					h2.bag-title New Bag
-					button.button.cancel Cancel
-					button.button.hold Hold
+					.bag-title-btns
+						button.button.cancel Cancel
+						button(disabled).button.hold.inactive Hold
+				.bag-nav-row
+					.bag-nav-btns
+						button(data-pos='0').bag-nav-btn.active
+							span.bag-nav-btn-status
+								span 25%
+							span Specimen(s)
+						button(data-pos='1').bag-nav-btn.ready
+							span.bag-nav-btn-status
+								span
+							span Patient
+						button(data-pos='2').bag-nav-btn.empty
+							span.bag-nav-btn-status
+								span
+							span Billing
+					button(data-pos='0').bag-nav-next
+						span NEXT
+				form.bag-body
+					.page.page-1
+						.col
+							.input-block.filled
+								.input-block-title
+									span Req Type
+									span.red *
+								.input
+									input(type='text' value='4path General Molecular reqs')
+							.input-block.decline
+								.input-block-title
+									span Tracking #
+									span.red *
+								.input
+									input(type='text' value='00000000')
+									.status
+										span No Tracking
+								.variant
+									span Fedex
+							.input-block
+								.input-block-title
+									span Tracking Comments
+									span.red *
+								.input
+									textarea
+							.input-block.bags
+								.input-block-title
+									span # of bags
+									span.red *
+								.input
+									input(type='text')
+									.checkbox
+										input(type='checkbox')#bags-checkbox
+										label(for='bags-checkbox')
+											span
+											span Opened Bag
+						.col.spec
+							.spec-title
+								span Specimen 1
+							.spec-btns
+								button.add-once
+									span.before
+									span Add
+								button.add-tripple
+									span
+										span.before
+										span.before
+										span.before
+									span Add
+						.col.collection
+							.input-block.collection-title
+								.input-block-title
+									span Collection Date and Time
+									span.red *
+							.collection-row
+								.input-block
+									.input-block-title
+										span Type
+										span.red *
+									.input
+										.select.type
+											button(type='button').button.select-head
+												span
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').select-option.button Option 1
+												button(type='button').select-option.button Option 2
+								.input-block.qty
+									.input-block-title
+										span Qty
+										span.red *
+									.input
+										input(type='text')
+								.scroll
+									input(type='hidden')
+									.scroll-line
+										button.scroll-button
+											span
+									.scroll-values
+										span 10/22
+										span 10/21
+										span 10/20
+										span 10/19
+										span 10/18
+										span 10/17
+								.time
+									input
+									span :
+									input
+									span am pm
+							.collection-row
+								.input-block
+									.input-block-title
+										span PID
+										span.red *
+									.input
+										.select.pid
+											button(type='button').button.select-head
+												span >1
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').select-option.button >2
+												button(type='button').select-option.button >3
+								.input-block
+									.input-block-title
+										span Color
+										span.red *
+									.input
+										.select
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').select-option.button Red
+												button(type='button').select-option.button Green
+												button(type='button').select-option.button Blue
+												button(type='button').select-option.button Black
+												button(type='button').select-option.button White
+								.input-block
+									.input-block-title
+										span Turbidity
+									.input
+										.select
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').select-option.button Variant 1
+												button(type='button').select-option.button Variant 2
+								.input-block
+									.input-block-title
+										span Cold Pack
+									.input
+										.select
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').select-option.button Variant 1
+												button(type='button').select-option.button Variant 2
+								.input-block
+									.input-block-title
+										span Location
+									.input
+										.select
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').select-option.button Variant 1
+												button(type='button').select-option.button Variant 2
+								.input-block
+									.input-block-title
+										span Method
+									.input
+										.select.method
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').select-option.button Variant 1
+												button(type='button').select-option.button Variant 2
+							.collection-row
+								.input-block.method-comments
+									.input-block-title
+										span Method Comments
+									.input
+										input
+							.collection-row
+								.input-block.tests
+									.input-block-title
+										span Tests
+										span.red *
+									.tests-body
+										.tests-title
+											span Add codes seperated by commas
+											button.add Add
+										.row
+											.checkbox
+												input(type='checkbox')#test-1
+												label(for='test-1')
+													span
+													span
+														strong 166&nbsp;
+														em Bacterial Vaginosis Panel (with Lactobacillus Profiling) by Quantitative Real-Time PCR
+										.row
+											.checkbox
+												input(type='checkbox')#test-2
+												label(for='test-2')
+													span
+													span
+														strong 166&nbsp;
+														em Candida Vaginitis Panel by Real-Time PCR
+										.row
+											.checkbox
+												input(type='checkbox')#test-3
+												label(for='test-3')
+													span
+													span
+														strong 166&nbsp;
+														em Leukorrhea Panel by Real-Time PCR
+								.input-block.discrepancies
+									.input-block-title
+										span Discrepancies
+									.discrepancies-body
+										.row
+											.checkbox
+												input(type='checkbox')#dis-1
+												label(for='dis-1')
+													span
+													span Additional Document
+											input(type='text')
+										.row
+											.checkbox
+												input(type='checkbox')#dis-2
+												label(for='dis-2')
+													span
+													span Conflict with panel accessioned.
+											input(type='text')
+										.row
+											.checkbox
+												input(type='checkbox')#dis-3
+												label(for='dis-3')
+													span
+													span Specimen vial unlabeled & packaged with another unlabeled MDL. SPECIFY MDL#.
+											input(type='text')
+
+					.page
+					.page
 	footer.foot
 		+inc('js','front.js')

@@ -44,11 +44,70 @@ class Front {
     select.classList.remove('active');
   }
 
+  pageSelectorsHandlers(){
+    const _ = this;
+    let buttons = document.querySelectorAll('.bag-nav-btn');
+    if (buttons.length) {
+      let pages = document.querySelectorAll('.page');
+      let next = document.querySelector('.bag-nav-next');
+      for (let button of buttons) {
+        button.addEventListener('click',function () {
+          _.pagesControlRemoveActive(buttons);
+          _.pageSelect(button,pages,next);
+        })
+      }
+      next.addEventListener('click',function () {
+        _.pageNextClick(next,buttons,pages);
+      })
+    }
+  }
+  pagesControlRemoveActive(buttons){
+    for (let btn of buttons) {
+      btn.classList.remove('active');
+    }
+  }
+  pageSelect(button,pages,next){
+    let position = parseInt(button.getAttribute('data-pos'));
+    button.classList.add('active');
+    for (let page of pages) {
+      page.style.transform = `translateX(${position * -100}%)`
+    }
+    next.setAttribute('data-pos',position)
+  }
+  pageNextClick(button,buttons,pages){
+    let position = parseInt(button.getAttribute('data-pos'));
+    if (position < 2) {
+      position += 1;
+      this.pagesControlRemoveActive(buttons);
+      button.setAttribute('data-pos',position);
+      buttons[position].classList.add('active');
+      for (let page of pages) {
+        page.style.transform = `translateX(${position * -100}%)`
+      }
+    }
+  }
+
+  bagHandlers(){
+    let bag = document.querySelector('.bag');
+    if (bag) {
+      let startButton = document.querySelector('.start-button');
+      startButton.addEventListener('click',function (e) {
+        e.preventDefault();
+        bag.classList.add('active')
+      });
+      let cancel = document.querySelector('.bag .cancel');
+      cancel.addEventListener('click',function () {
+        bag.classList.remove('active')
+      })
+    }
+  }
 
 
   init(){
     const _ = this;
     _.selectHandlers();
+    _.pageSelectorsHandlers();
+    _.bagHandlers();
   }
 }
 new Front();

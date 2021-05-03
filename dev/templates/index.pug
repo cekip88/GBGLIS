@@ -151,8 +151,8 @@ block content
 							span Billing
 					button(data-pos='0').bag-nav-next
 						span NEXT
-				form.bag-body
-					.page.page-1
+				.bag-body
+					form.page.page-1
 						.col
 							.input-block.filled
 								.input-block-title
@@ -378,7 +378,462 @@ block content
 													span Specimen vial unlabeled & packaged with another unlabeled MDL. SPECIFY MDL#.
 											input(type='text')
 
-					.page
+					.page.page-2
+						form.search.col
+							.input-block
+								.input-block-title
+									span Name
+								.input
+									input(type='text' placeholder='First or Last')
+							.input-block
+								.input-block-title
+									span DOB
+								.input
+									input(type='text' placeholder='mm/dd/yyyy')
+							.input-block
+								.input-block-title
+									span ID
+								.input
+									input(type='text' name='MLD-id')
+									.status
+										button.active MDL
+										button Client
+							button.button.search-button
+						.col.search-results
+							table.table.search-results-table
+								thead
+									tr
+										th
+											span ID
+										th
+											span Name
+										th
+											span DOB
+										th
+											span SSN
+										th
+											span Phone
+								tbody
+									tr(data-target='details')
+										td
+											span 00000000
+										td
+											span John Doe
+										td
+											span 1/1/1990
+										td
+											span 000-00-0000
+										td
+											span 000-000-0000
+									tr
+										td
+											span
+										td
+											span
+										td
+											span
+										td
+											span
+										td
+											span
+							button.add-once.add-patient
+								span.before
+								span Add New Patient
+						.details
+							button.details-close
+							.col.col-first
+								table.table
+									thead
+										tr
+											th
+												span ID
+											th
+												span Name
+											th
+												span DOB
+											th
+												span SSN
+											th
+												span Phone
+									tbody
+										tr
+											td
+												span
+													em 00000000
+											td
+												span
+													em John Doe
+											td
+												span
+													em 1/1/1990
+											td
+												span
+													em 000-00-0000
+											td
+												span
+													em 000-000-0000
+								.details-info
+									.details-info-row
+										.col
+											.row.filled
+												span First Name:
+												span John
+											.row
+												span Middle Name:
+												span
+											.row.filled
+												span Last Name:
+												span Doe
+											.row.filled
+												span DOB:
+												span 1/1/1990
+											.row.filled
+												span Gender:
+												span Male
+											.row
+												span Ethnicity:
+												span
+											.row
+												span SSN:
+												span
+											.row
+												span In Care Of:
+												span
+											.row
+												span Address:
+												span
+											.row
+												span Client PID:
+												span
+										.col
+											.row
+												span Address 2
+											.row.filled
+												span City:
+												span Hamilton
+											.row.filled
+												span State:
+												span New Jersey
+											.row
+												span Zip:
+												span
+											.row
+												span Country:
+												span
+											.row
+												span Home Phone:
+												span
+											.row
+												span Word Phone:
+												span
+											.row
+												span Cell Phone:
+												span
+											.row
+												span Fax:
+												span
+											.row
+												span Email:
+												span
+									.details-dis
+										.details-dis-title Discrepancies
+										.details-dis-body
+											.row
+												.checkbox
+													input(type='checkbox')#disc-1
+													label(for='disc-1')
+														span
+														span Additional Document
+												input(type='text')
+											.row
+												.checkbox
+													input(type='checkbox')#disc-2
+													label(for='disc-2')
+														span
+														span Conflict with panel accessioned
+												input(type='text')
+											.row
+												.checkbox
+													input(type='checkbox')#disc-3
+													label(for='disc-3')
+														span
+														span Lorem ipsum dolor
+												input(type='text')
+											.row
+												.checkbox
+													input(type='checkbox')#disc-4
+													label(for='disc-4')
+														span
+														span Lorem ipsum dolor
+												input(type='text')
+											.row
+												.checkbox
+													input(type='checkbox')#disc-5
+													label(for='disc-5')
+														span
+														span Lorem ipsum dolor
+												input(type='text')
+
+							.col
+								form.clinical
+									.clinical-title Clinical Information
+									.row
+										.input-block
+											.input-block-title
+												span Date of Last Pap
+												span.red *
+											.input
+												input(type='text')
+										.input-block
+											.input-block-title
+												span Date of LMP
+											.input
+												input(type='text')
+									.clinical-block.results
+										.clinical-block-title Previous Results
+										.row
+											.checkbox
+												input(type='checkbox')#clinical-1
+												label(for='clinical-1')
+													span
+													span Normal
+											.checkbox
+												input(type='checkbox')#clinical-2
+												label(for='clinical-2')
+													span
+													span Reactive
+											.checkbox
+												input(type='checkbox')#clinical-3
+												label(for='clinical-3')
+													span
+													span Other
+											.checkbox
+												input(type='checkbox')#clinical-4
+												label(for='clinical-4')
+													span
+													span ASCUS
+											.checkbox
+												input(type='checkbox')#clinical-5
+												label(for='clinical-5')
+													span
+													span CIN 3
+										.row
+											.checkbox
+												input(type='checkbox')#clinical-6
+												label(for='clinical-6')
+													span
+													span LGSIL
+											.checkbox
+												input(type='checkbox')#clinical-7
+												label(for='clinical-7')
+													span
+													span HGSIL
+											.checkbox
+												input(type='checkbox')#clinical-8
+												label(for='clinical-8')
+													span
+													span CIN 1
+											.checkbox
+												input(type='checkbox')#clinical-9
+												label(for='clinical-9')
+													span
+													span CIN 2
+									.clinical-block.check
+										.clinical-block-title Previous Results
+										.row
+											.checkbox
+												input(type='checkbox')#clinical-11
+												label(for='clinical-11')
+													span
+													span H/O Neoplasm uterus/corpus uteri
+											.checkbox
+												input(type='checkbox')#clinical-12
+												label(for='clinical-12')
+													span
+													span Menopausal/Hysterectomy
+										.row
+											.checkbox
+												input(type='checkbox')#clinical-13
+												label(for='clinical-13')
+													span
+													span BCP
+											.checkbox
+												input(type='checkbox')#clinical-14
+												label(for='clinical-14')
+													span
+													span Hysterectomy
+										.row
+											.checkbox
+												input(type='checkbox')#clinical-15
+												label(for='clinical-15')
+													span
+													span Biopsy Today
+											.checkbox
+												input(type='checkbox')#clinical-16
+												label(for='clinical-16')
+													span
+													span Lactating
+									.clinical-block
+										.clinical-block-title Notes
+										textarea.clinical-block-textarea
+						form.col.new-patient
+							.new-patient-title-row
+								h6.new-patient-title Add New Patient
+								button(type='button').button.cancel
+									span Cancel
+							.row.row-first
+								.input-block
+									.input-block-title
+										span First Name
+										span.red *
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Middle Name
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Last Name
+										span.red *
+									.input
+										input(type='text')
+							.row
+								.input-block
+									.input-block-title
+										span DOB
+										span.red *
+									.input
+										input(type='text' placeholder='mm/dd/yyyy')
+								.input-block
+									.input-block-title
+										span Gender
+										span.red *
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Ethnicity
+										span.red *
+									.input
+										.select
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').button.select-option
+													span Variant 1
+												button(type='button').button.select-option
+													span Variant 2
+												button(type='button').button.select-option
+													span Variant 3
+							.row
+								.input-block
+									.input-block-title
+										span SSN
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span In Care Of
+									.input
+										input(type='text')
+							.line
+							.row
+								.input-block
+									.input-block-title
+										span Address
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Address 2
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span City
+									.input
+										input(type='text')
+							.row
+								.input-block
+									.input-block-title
+										span State
+									.input
+										.select
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').button.select-option
+													span Variant 1
+												button(type='button').button.select-option
+													span Variant 2
+												button(type='button').button.select-option
+													span Variant 3
+								.input-block
+									.input-block-title
+										span Zip
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Country
+									.input
+										.select
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').button.select-option
+													span Variant 1
+												button(type='button').button.select-option
+													span Variant 2
+												button(type='button').button.select-option
+													span Variant 3
+							.line
+							.row
+								.input-block
+									.input-block-title
+										span Home Phone
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Work Phone
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Cell Phone
+									.input
+										input(type='text')
+							.row
+								.input-block
+									.input-block-title
+										span Fax
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Email
+									.input
+										input(type='text')
+							.line
+							.row
+								.input-block
+									.input-block-title
+										span Client PID
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Client Req #
+									.input
+										input(type='text')
+							.button-row
+								button.button.new-patient-button Create Patient
 					.page
 	footer.foot
 		+inc('js','front.js')

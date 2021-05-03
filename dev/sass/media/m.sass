@@ -23,9 +23,33 @@ body
 	border: 1px solid #939AA0
 	border-radius: 4px
 	transition: .35s
+	&.cancel
+		color: $red
+		&:before
+			content: '\X'
+	&.hold
+		&:before
+			content: '\48'
+	&.hold,&.cancel
+		font-family: $f_bold
+		@extend %dfc
+		&:before
+			margin-right: 5px
+			font-family: 'icons'
+			font-size: 13px
 	&:hover
 		background-color: $head-bgc
 		color: #fff
+	&:active
+		box-shadow: inset 5px 5px 5px rgba($black,.2)
+	&.inactive
+		cursor: initial
+		color: #B7BBBE
+		border-color: #B7BBBE
+		&:hover
+			background-color: #fff
+			&,&:before
+				color: #B7BBBE
 .select
 	position: relative
 	&-head
@@ -509,35 +533,8 @@ body
 		&-btns
 			@extend %dfa
 			padding-right: 10px
-			.button
-				font-family: $f_bold
-				@extend %dfc
-				&:before
-					margin-right: 5px
-					font-family: 'icons'
-					font-size: 13px
-					transition: .35s
-				&:hover
-					&,&:before
-						color: #fff
-				&:active
-					box-shadow: inset 5px 5px 5px rgba($black,.2)
-				&.inactive
-					cursor: initial
-					color: #B7BBBE
-					border-color: #B7BBBE
-					&:hover
-						background-color: #fff
-						&,&:before
-							color: #B7BBBE
 			.cancel
 				margin-right: 10px
-				color: $red
-				&:before
-					content: '\X'
-			.hold
-				&:before
-					content: '\48'
 	&-nav
 		&-row
 			@extend %dfi
@@ -604,325 +601,548 @@ body
 		@extend %df
 		height: calc(100% - 67px)
 		margin-top: -55px
-		padding-top: 105px
+		padding-top: 75px
 		padding-left: 60px
 		padding-bottom: 18px
 		background-color: #FBFDFF
 		overflow: hidden
-		.input
-			&-block
-				margin-bottom: 30px
-				&.filled
-					.input-block-title
-						&:before
-							content: '\O'
-							color: $green
-				&.decline
-					.input-block-title
-						&:before
-							content: '\X'
-							color: $red
-				&.filled,&.decline
-					.input-block-title
-						span
-							color: #C0C5CA
-						&:before
-							margin-right: 9px
-							font-family: 'icons'
-					.input
-						input,textarea
-							border-color: #939AA026
-				&,textarea
-					font-size: 16px
-					font-family: $f_bold
-				&-title
-					margin-bottom: 8px
-					span
-						margin-right: 2px
-						&.red
-							color: $red
-				.input
-					@extend %dfa
-					position: relative
-					input,textarea
-						border-radius: 4px
-						border: 1px solid #939AA0
-						background-color: #fff
-					input
-						+wh(100%,40px)
-						padding-left: 18px
-					textarea
-						+wh(100%,116px)
-						padding: 18px
-						resize: none
-					.status
-						height: 40px
-						padding: 0 18px
-						display: inline-flex
-						align-items: center
-						justify-content: center
-						border-radius: 0 4px 4px 0
-						background-color: rgba(#99A0A1,.2)
-						color: #99A0A1
-						font-family: $f_reg
-						position: absolute
-						bottom: 0
-						right: 0
-				.variant
-					min-width: 84px
-					height: 29px
-					margin-left: 4px
-					padding: 0 15px
-					display: inline-flex
-					align-items: center
-					border: 1px dashed #C0C5CA
-					font-size: 16px
-					color: #657690
-					font-family: $f_italic
-				.checkbox
-					margin-left: 40px
-				&.bags
-					.input
-						input[type='text']
-							width: 85px
+.page
+	@extend %df
+	flex: 0 0 100%
+	padding-right: 60px
+	overflow: hidden
+	transition: .35s ease
+	&-1
 		.col
-			padding-top: 10px
+			&:first-child
+				flex: 0 0 477px
+				padding-right: 77px
+			&:nth-child(2)
+				flex: 0 0 220px
+				padding-left: 14px
+	&-2
+		position: relative
+		&>.col
+			&:first-child
+				flex: 0 0 313px
+				padding-right: 50px
+		.table
+			width: 700px
+			border-collapse: collapse
+			tr
+				span
+					@extend %dfc
+					min-height: 43px
+					font-weight: 500
+				&:last-child
+					span
+						border-bottom: 1px solid #C0C5CA
+			td
+				span
+					font-family: $f_bold
+.input
+	&-block
+		margin-bottom: 20px
+		&.filled
+			.input-block-title
+				&:before
+					content: '\O'
+					color: $green
+		&.decline
+			.input-block-title
+				&:before
+					content: '\X'
+					color: $red
+		&.filled,&.decline
+			.input-block-title
+				span
+					color: #C0C5CA
+				&:before
+					margin-right: 9px
+					font-family: 'icons'
+			.input
+				input,textarea
+					border-color: #939AA026
+		&,textarea
+			font-size: 16px
+			font-family: $f_bold
+		&-title
+			margin-bottom: 8px
+			span
+				margin-right: 2px
+				&.red
+					color: $red
+		.input
+			@extend %dfa
 			position: relative
-			&:after
-				+wh(2px,100%)
-				+af
+			input,textarea
+				border-radius: 4px
+				border: 1px solid #939AA0
+				background-color: #fff
+				&::placeholder
+					color: rgba(#505556,.6)
+			input
+				+wh(100%,40px)
+				padding-left: 18px
+			textarea
+				+wh(100%,116px)
+				padding: 18px
+				resize: none
+			.status
+				height: 40px
+				display: inline-flex
+				align-items: center
+				justify-content: center
+				border-radius: 0 4px 4px 0
+				background-color: rgba(#99A0A1,.2)
+				font-family: $f_reg
 				position: absolute
-				right: 0
-				top: 0
-				background-color: #C0C5CA
+				bottom: 0
+				right: 1px
+				span,button
+					@extend %dfc
+					height: calc(100% - 2px)
+					color: #99A0A1
+					&:last-child
+						border-radius: 0 4px 4px 0
+				span
+					padding: 0 18px
+				button
+					padding: 0 10px
+					background-color: #fff
+					&.active
+						color: #505556
+						background-color: #C0C5CA
+		.variant
+			min-width: 84px
+			height: 29px
+			margin-left: 4px
+			padding: 0 15px
+			display: inline-flex
+			align-items: center
+			border: 1px dashed #C0C5CA
+			font-size: 16px
+			color: #657690
+			font-family: $f_italic
+		.checkbox
+			margin-left: 40px
+		&.bags
+			.input
+				input[type='text']
+					width: 85px
+.col
+	padding-top: 10px
+	position: relative
+	&:after
+		+wh(2px,100%)
+		+af
+		position: absolute
+		right: 0
+		top: 0
+		background-color: #C0C5CA
+	&:last-child
+		&:after
+			content: none
+.spec
+	padding-top: 0
+	&-title
+		@extend %dfa
+		height: 32px
+		padding-left: 40px
+		border-radius: 16px 0 0 16px
+		font-family: $f_bold
+		font-size: 16px
+		color: #222525
+		position: relative
+		&,&:after
+			background-color: #C0C5CA
+		&:after
+			+wh(23px)
+			content: ''
+			transform: rotate(45deg)
+			position: absolute
+			right: -11px
+	&-btns
+		@extend %dfa
+		margin-top: 15px
+.add
+	&-once,&-tripple
+		@extend %dfa
+		margin-right: 18px
+		&:hover
+			&>span
+				&:first-child
+					background-color: #449E9F
+					border-color: transparent
+					&,.before
+						color: #fff
+		&>span
+			&:first-child
+				@extend %dfc
+				+wh(35px)
+				margin-right: 11px
+				border-radius: 100%
+				border: 1px solid #B7BBBE
+				transition: .35s
 			&:last-child
-				&:after
-					content: none
-		.page
-			flex: 0 0 100%
-			padding-right: 60px
-			transition: .35s ease
-			&-1
-				@extend %df
-				.col
-					&:first-child
-						flex: 0 0 477px
-						padding-right: 77px
-					&:nth-child(2)
-						flex: 0 0 220px
-						padding-left: 14px
-		.spec
-			padding-top: 0
-			&-title
-				@extend %dfa
-				height: 32px
-				padding-left: 40px
-				border-radius: 16px 0 0 16px
-				font-family: $f_bold
 				font-size: 16px
-				color: #222525
+				font-family: $f_bold
+		.before
+			&:before
+				+af
+				font-family: 'icons'
+				content: '\+'
+	&-once
+		color: #449E9F
+	&-tripple
+		color: #96999A
+		&>span
+			&:first-child
 				position: relative
-				&,&:after
-					background-color: #C0C5CA
+			&:last-child
+				position: relative
 				&:after
-					+wh(23px)
-					content: ''
-					transform: rotate(45deg)
+					+af
+					+wh(140%,2px)
+					background-color: #B7BBBE
 					position: absolute
-					right: -11px
-			&-btns
-				@extend %dfa
-				margin-top: 15px
+					left: -20%
+					bottom: -5px
+		.before
+			font-size: 8px
+			color: #449E9F
+			position: absolute
+			left: 15px
+			&:first-child
+				left: 8px
+			&:nth-child(2)
+				top: 6px
+			&:last-child
+				bottom: 6px
+	&-form
+
+.collection
+	width: 100%
+	padding-top: 0
+	padding-left: 56px
+	.button
+		min-height: 42px
+	.input input
+		height: 42px
+	&-title
+		margin-bottom: -4px
+		margin-right: 200px
+		text-align: right
+		.input-block-title
+			margin-bottom: 0
+	&-row
+		@extend %df
+		justify-content: space-between
+		align-items: flex-start
+		.type
+			width: 400px
+		.qty
+			width: 53px
+			margin-left: 14px
+		.scroll
+			margin-left: 50px
+			margin-top: 30px
+		.time
+			@extend %dfa
+			margin-top: 26px
+			margin-left: auto
+			span
+				font-family: $f_bold
+			input
+				width: 53px
+				height: 42px
+				border-radius: 4px
+				border: 1px solid #939AA0
+				background-color: #fff
+				&:first-child
+					margin-right: 5px
+				&:nth-child(3)
+					margin-left: 5px
+					margin-right: 7px
+		.pid,.method
+			.select-head,.select-option
+				min-width: initial
+		.pid
+			.select-head
+				width: 88px
+		.method
+			.select-head
+				width: 250px
+			&-comments
+				.input
+					input
+						width: 455px
+		.tests,.discrepancies
+			width: 470px
+			&-body
+				height: 363px
+				border-radius: 4px
+				border: 1px solid #939AA0
+				background-color: #fff
+				overflow: auto
+				font-size: 14px
+		.tests
+			margin-right: 24px
+			&-title
+				padding: 15px 35px
+				background-color: #FBFDFF
+				color: #8A9192
+				font-family: $f_italic
+				position: relative
 				.add
-					&-once,&-tripple
-						@extend %dfa
-						margin-right: 18px
-						&:hover
+					height: 100%
+					padding: 0 30px
+					border-radius: 50px 0 0 50px
+					border: 2px solid #939AA0
+					color: #449E9F
+					font-family: $f_bold
+					position: absolute
+					top: 0
+					right: 0
+					transition: .35s
+					&:hover
+						border-color: transparent
+						background-color: #449E9F
+						color: #fff
+			.row
+				@extend %dfa
+				height: 60px
+				&:nth-child(odd)
+					background-color: #F7F9FA
+					border-top: 1px solid #D9DCE0
+					border-bottom: 1px solid #D9DCE0
+				.checkbox
+					margin-left: 13px
+					label
+						&>span
+							&:first-child
+								margin-bottom: auto
+							&:last-child
+								@extend %df
+								align-items: flex-start
+					em
+						white-space: initial
+						font-family: $f_reg
+		.discrepancies
+			margin-right: auto
+			&-body
+				padding: 15px
+				.row
+					@extend %df
+					align-items: flex-start
+					margin-bottom: 14px
+					input[type='text']
+						width: 100%
+						margin-left: 10px
+						border-bottom: 1px solid #505556
+					.checkbox
+						margin-left: 0
+						label
+							font-family: $f_reg
 							&>span
 								&:first-child
-									background-color: #449E9F
-									border-color: transparent
-									&,.before
-										color: #fff
-						&>span
-							&:first-child
-								@extend %dfc
-								+wh(35px)
-								margin-right: 11px
-								border-radius: 100%
-								border: 1px solid #B7BBBE
-								transition: .35s
-							&:last-child
-								font-size: 16px
-								font-family: $f_bold
-						.before
-							&:before
-								+af
-								font-family: 'icons'
-								content: '\+'
-					&-once
-						color: #449E9F
-					&-tripple
-						color: #96999A
-						&>span
-							&:first-child
-								position: relative
-							&:last-child
-								position: relative
-								&:after
-									+af
-									+wh(140%,2px)
-									background-color: #B7BBBE
-									position: absolute
-									left: -20%
-									bottom: -5px
-						.before
-							font-size: 8px
-							color: #449E9F
-							position: absolute
-							left: 15px
-							&:first-child
-								left: 8px
-							&:nth-child(2)
-								top: 6px
-							&:last-child
-								bottom: 6px
-		.collection
-			width: 100%
-			padding-top: 0
-			padding-left: 56px
-			.button
-				min-height: 42px
-			.input input
-				height: 42px
-			&-title
-				margin-bottom: -4px
-				margin-right: 200px
-				text-align: right
-				.input-block-title
-					margin-bottom: 0
-			&-row
-				@extend %df
-				justify-content: space-between
-				align-items: flex-start
-				.type
-					width: 400px
-				.qty
-					width: 53px
-					margin-left: 14px
-				.scroll
-					margin-left: 50px
-					margin-top: 30px
-				.time
-					@extend %dfa
-					margin-top: 26px
-					margin-left: auto
-					span
-						font-family: $f_bold
-					input
-						width: 53px
-						height: 42px
-						border-radius: 4px
-						border: 1px solid #939AA0
-						background-color: #fff
-						&:first-child
-							margin-right: 5px
-						&:nth-child(3)
-							margin-left: 5px
-							margin-right: 7px
-				.pid,.method
-					.select-head,.select-option
-						min-width: initial
-				.pid
-					.select-head
-						width: 88px
-				.method
-					.select-head
-						width: 250px
-					&-comments
-						.input
-							input
-								width: 455px
-				.tests,.discrepancies
-					width: 470px
-					&-body
-						height: 333px
-						border-radius: 4px
-						border: 1px solid #939AA0
-						background-color: #fff
-						overflow: auto
-				.tests
-					margin-right: 24px
-					&-title
-						padding: 15px 35px
-						background-color: #FBFDFF
-						color: #8A9192
-						font-family: $f_italic
-						position: relative
-						.add
-							height: 100%
-							padding: 0 30px
-							border-radius: 50px 0 0 50px
-							border: 2px solid #939AA0
-							color: #449E9F
-							font-family: $f_bold
-							position: absolute
-							top: 0
-							right: 0
-							transition: .35s
-							&:hover
-								border-color: transparent
-								background-color: #449E9F
-								color: #fff
-					.row
-						@extend %dfa
-						height: 60px
-						&:nth-child(odd)
-							background-color: #F7F9FA
-							border-top: 1px solid #D9DCE0
-							border-bottom: 1px solid #D9DCE0
+									margin-bottom: auto
+					&:nth-child(n + 2)
 						.checkbox
-							margin-left: 13px
 							label
-								&>span
-									&:first-child
-										margin-bottom: auto
-									&:last-child
-										@extend %df
-										align-items: flex-start
-							em
+								min-width: 265px
 								white-space: initial
-								font-family: $f_reg
-				.discrepancies
-					margin-right: auto
-					&-body
-						padding: 15px
-						.row
-							@extend %dfa
-							margin-bottom: 14px
-							input[type='text']
-								width: 100%
-								margin-left: 10px
-								border-bottom: 1px solid #505556
-							.checkbox
-								margin-left: 0
-								label
-									font-family: $f_reg
-									&>span
-										&:first-child
-											margin-bottom: auto
-							&:nth-child(n + 2)
-								.checkbox
-									label
-										min-width: 265px
-										white-space: initial
+.search
+	&-button
+		min-width: 84px
+		border-color: #449E9F
+		color: #449E9F
+		text-align: center
+		&:after
+			content: '\s'
+			font-family: 'icons'
+		&:hover
+			border-color: transparent
+			color: #fff
+	&-results
+		flex: 0 0 790px
+		padding: 10px 45px 0
+		.add-once
+			margin: 40px 0 0 20px
+.details
+	@extend %df
+	width: calc(100% - 60px)
+	height: 100%
+	background-color: #FBFDFF
+	transform: translateY(100%)
+	position: absolute
+	top: 0
+	left: 0
+	z-index: 1
+	transition: .35s ease
+	&.active
+		transform: translateY(0)
+	.col
+		&-first
+			padding-right: 43px
+	.table
+		thead
+			span
+				padding-left: 15px
+				justify-content: flex-start
+		tbody
+			span
+				padding: 5px 0
+		em
+			@extend %dfa
+			width: 100%
+			height: 37px
+			padding-left: 15px
+			background-color: #449E9F
+			color: #fff
+		td
+			&:first-child
+				em
+					border-radius: 18px 0 0 18px
+			&:last-child
+				em
+					border-radius: 0 18px 18px 0
+	&-info
+		margin-top: 15px
+		font-size: 14px
+		&-row
+			@extend %df
+			align-items: flex-start
+			.col
+				flex: 0 0 50%
+				&:last-child
+					padding-left: 20px
+				.row
+					@extend %dfa
+					padding: 10px
+					&:nth-child(odd)
+						background-color: #fff
+					&:nth-child(even)
+						background-color: #F7F9FA
+					span
+						&:first-child
+							flex: 0 0 150px
+							font-family: $f_italic
+					&.filled
+						span:first-child
+							font-family: $f_bold
+	&-dis
+		margin-top: 30px
+		&-title
+			font-size: 16px
+			font-family: $f_bold
+			margin-bottom: 10px
+		&-body
+			height: 153px
+			padding: 10px
+			border-radius: 4px
+			border: 1px solid #939AA0
+			overflow: auto
+		.row
+			@extend %dfa
+			margin-bottom: 10px
+			&:last-child
+				margin-bottom: 0
+			input[type='text']
+				width: 100%
+				margin-left: 10px
+				border-bottom: 1px solid #939AA0
+	&-close
+		padding: 10px
+		border-radius: 4px
+		border: 1px solid #939AA0
+		position: absolute
+		top: 0
+		right: 0
+		transition: .35s
+		&:after
+			content: '\X'
+			font-family: 'icons'
+		&:hover
+			background-color: #657690
+			color: #fff
+.clinical
+	padding-left: 50px
+	&-title
+		margin-bottom: 30px
+		font-family: $f_bold
+		font-size: 20px
+		color: #657690
+	.row
+		@extend %df
+		margin-bottom: 15px
+		align-items: flex-start
+		&:last-child
+			margin-bottom: 0
+		.input-block
+			margin-right: 10px
+	&-block
+		margin-bottom: 30px
+		font-family: $f_bold
+		&-title
+			font-size: 16px
+			margin-bottom: 15px
+		&-textarea
+			+wh(405px,116px)
+			resize: none
+			border-radius: 4px
+			border: 1px solid #939AA0
+			background-color: #fff
+		&.results
+			.checkbox
+				width: 140px
+		&.check
+			.checkbox
+				width: 300px
 
 
-
-
-
-
-
+.new-patient
+	width: 100%
+	height: 697px
+	padding-left: 30px
+	padding-right: 10px
+	transform: translateY(100%)
+	overflow: auto
+	transition: .35s
+	&.active
+		transform: translateY(0)
+	&-title
+		color: #657690
+		font-family: $f_bold
+		font-size: 20px
+		&-row
+			@extend %dfi
+			margin-bottom: 30px
+	.row
+		@extend %df
+		.input
+			&-block
+				margin-right: 10px
+				&:last-child
+					margin-right: 0
+		&-first
+			.input
+				&-block
+					flex-shrink: 0
+					&:last-child
+						flex-shrink: 1
+						width: 100%
+	.line
+		width: 100%
+		height: 2px
+		margin-bottom: 20px
+		background: transparent linear-gradient(90deg, #B7BBBE00 0%, #B7BBBE 50%, #B7BBBE00 100%) 0% 0% no-repeat padding-box
+	&-button
+		background-color: #48A0A1
+		color: #fff
+	.button-row
+		@extend %dfc
+		padding-bottom: 20px
 
 
 

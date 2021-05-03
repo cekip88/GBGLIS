@@ -102,12 +102,41 @@ class Front {
     }
   }
 
+  detailsHandler(){
+    let table = document.querySelector('.search-results-table');
+    if (table) {
+      let details = document.querySelector('.details');
+      table.addEventListener('click',function (e){
+        details.classList.add('active');
+      });
+      let closeBtn = document.querySelector('.details-close');
+      closeBtn.addEventListener('click',function (e){
+        details.classList.remove('active');
+      })
+    }
+  }
+
+  patientHandlers(){
+    let newPat = document.querySelector('.new-patient');
+    if (newPat) {
+      let addBtn = document.querySelector('.add-patient');
+      addBtn.addEventListener('click',function (e){
+        newPat.classList.add('active');
+      })
+      let cancel = newPat.querySelector('.cancel');
+      cancel.addEventListener('click',function (e){
+        newPat.classList.remove('active');
+      })
+    }
+  }
 
   init(){
     const _ = this;
     _.selectHandlers();
     _.pageSelectorsHandlers();
     _.bagHandlers();
+    _.detailsHandler();
+    _.patientHandlers();
   }
 }
 new Front();

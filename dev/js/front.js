@@ -72,12 +72,16 @@ class Front {
     for (let page of pages) {
       page.style.transform = `translateX(${position * -100}%)`
     }
-    next.setAttribute('data-pos',position)
+    next.setAttribute('data-pos',position);
+    if (position === 2) next.style = 'display:none;'
+    else next.style = '';
   }
   pageNextClick(button,buttons,pages){
     let position = parseInt(button.getAttribute('data-pos'));
     if (position < 2) {
       position += 1;
+      if (position === 2) button.style = 'display:none;'
+      else button.style = '';
       this.pagesControlRemoveActive(buttons);
       button.setAttribute('data-pos',position);
       buttons[position].classList.add('active');
@@ -130,6 +134,46 @@ class Front {
     }
   }
 
+  statusHandlers(){
+    const _ = this;
+    let statusInputs = document.querySelectorAll('.bag-nav-btn .value');
+    if (statusInputs.length) {
+      for (let statusInput of statusInputs) {
+        _.statusValuesShow(statusInput);
+      }
+    }
+  }
+  statusValuesShow(statusInput,value = null){
+    console.log(value)
+    let statusBtn = statusInput.closest('.bag-nav-btn');
+    let text = statusBtn.querySelector('.text');
+
+    if (value === null) value = parseInt(statusInput.value);
+    if (value < 0) value = 0;
+    else if (value > 100) value = 100;
+
+    let right = statusBtn.querySelector('.right span');
+    let left = statusBtn.querySelector('.left span');
+
+    if (value < 100) {
+      statusBtn.classList.remove('ready');
+      text.textContent = value + '%';
+    } else {
+      statusBtn.classList.add('ready');
+      text.textContent = '';
+    }
+
+    if (value <= 50) {
+      right.setAttribute('style',`transform:rotate(${value * 3.6}deg)`)
+    }
+    if (value > 50) {
+      right.setAttribute('style',`transform:rotate(180deg)`);
+      setTimeout(function (){
+        left.setAttribute('style',`transform:rotate(${(value - 50) * 3.6}deg)`)
+      },250)
+    }
+  }
+
   init(){
     const _ = this;
     _.selectHandlers();
@@ -137,6 +181,8 @@ class Front {
     _.bagHandlers();
     _.detailsHandler();
     _.patientHandlers();
+    _.statusHandlers();
+    setTimeout(function (){_.statusValuesShow(document.querySelector('.Patient-btn'),0)},4000)
   }
 }
 new Front();

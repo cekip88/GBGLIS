@@ -135,19 +135,35 @@ block content
 					.bag-title-btns
 						button.button.cancel Cancel
 						button(disabled).button.hold.inactive Hold
+						button.button.verify Verify
 				.bag-nav-row
 					.bag-nav-btns
-						button(data-pos='0').bag-nav-btn.active
-							span.bag-nav-btn-status
-								span 25%
+						button(data-pos='0').bag-nav-btn.Specimen-btn.active
+							input(type='number' value='100').value
+							.bag-nav-btn-status
+								.left
+									span
+								.right
+									span
+								span.text
 							span Specimen(s)
-						button(data-pos='1').bag-nav-btn.ready
-							span.bag-nav-btn-status
-								span
+						button(data-pos='1').bag-nav-btn.Patient-btn
+							input(type='number' value='45').value
+							.bag-nav-btn-status
+								.left
+									span
+								.right
+									span
+								span.text
 							span Patient
-						button(data-pos='2').bag-nav-btn.empty
-							span.bag-nav-btn-status
-								span
+						button(data-pos='2').bag-nav-btn.Billing-btn
+							input(type='number' value='0').value
+							.bag-nav-btn-status
+								.left
+									span
+								.right
+									span
+								span.text
 							span Billing
 					button(data-pos='0').bag-nav-next
 						span NEXT
@@ -677,163 +693,315 @@ block content
 										.clinical-block-title Notes
 										textarea.clinical-block-textarea
 						form.col.new-patient
-							.new-patient-title-row
-								h6.new-patient-title Add New Patient
-								button(type='button').button.cancel
-									span Cancel
-							.row.row-first
+							.new-patient-left
+								span Client Notes
+								p
+									strong 9/29/2015 at 9:30pm
+									em Lorem ipsum dolor
+							.new-patient-right
+								.new-patient-title-row
+									h6.new-patient-title Add New Patient
+									button(type='button').button.cancel
+										span Cancel
+								.row.row-first
+									.input-block
+										.input-block-title
+											span First Name
+											span.red *
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span Middle Name
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span Last Name
+											span.red *
+										.input
+											input(type='text')
+								.row
+									.input-block
+										.input-block-title
+											span DOB
+											span.red *
+										.input
+											input(type='text' placeholder='mm/dd/yyyy')
+									.input-block
+										.input-block-title
+											span Gender
+											span.red *
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span Ethnicity
+											span.red *
+										.input
+											.select
+												button(type='button').button.select-head
+													span Select
+													+img('caret_down.svg')
+												.select-body
+													button(type='button').button.select-option
+														span Variant 1
+													button(type='button').button.select-option
+														span Variant 2
+													button(type='button').button.select-option
+														span Variant 3
+								.row
+									.input-block
+										.input-block-title
+											span SSN
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span In Care Of
+										.input
+											input(type='text')
+								.line
+								.row
+									.input-block
+										.input-block-title
+											span Address
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span Address 2
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span City
+										.input
+											input(type='text')
+								.row
+									.input-block
+										.input-block-title
+											span State
+										.input
+											.select
+												button(type='button').button.select-head
+													span Select
+													+img('caret_down.svg')
+												.select-body
+													button(type='button').button.select-option
+														span Variant 1
+													button(type='button').button.select-option
+														span Variant 2
+													button(type='button').button.select-option
+														span Variant 3
+									.input-block
+										.input-block-title
+											span Zip
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span Country
+										.input
+											.select
+												button(type='button').button.select-head
+													span Select
+													+img('caret_down.svg')
+												.select-body
+													button(type='button').button.select-option
+														span Variant 1
+													button(type='button').button.select-option
+														span Variant 2
+													button(type='button').button.select-option
+														span Variant 3
+								.line
+								.row
+									.input-block
+										.input-block-title
+											span Home Phone
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span Work Phone
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span Cell Phone
+										.input
+											input(type='text')
+								.row
+									.input-block
+										.input-block-title
+											span Fax
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span Email
+										.input
+											input(type='text')
+								.line
+								.row
+									.input-block
+										.input-block-title
+											span Client PID
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span Client Req #
+										.input
+											input(type='text')
+								.button-row
+									button.button.new-patient-button Create Patient
+					.page.page-3.billing
+						.col
+							.checkbox
+								input(type='checkbox')#billing-1
+								label(for='billing-1')
+									span
+									span Uninsured Patient
+							.row
 								.input-block
 									.input-block-title
-										span First Name
+										span Policy
 										span.red *
 									.input
 										input(type='text')
 								.input-block
-									.input-block-title
-										span Middle Name
 									.input
-										input(type='text')
-								.input-block
-									.input-block-title
-										span Last Name
-										span.red *
-									.input
-										input(type='text')
-							.row
-								.input-block
-									.input-block-title
-										span DOB
-										span.red *
-									.input
-										input(type='text' placeholder='mm/dd/yyyy')
-								.input-block
-									.input-block-title
-										span Gender
-										span.red *
-									.input
-										input(type='text')
-								.input-block
-									.input-block-title
-										span Ethnicity
-										span.red *
-									.input
-										.select
-											button(type='button').button.select-head
-												span Select
-												+img('caret_down.svg')
-											.select-body
-												button(type='button').button.select-option
-													span Variant 1
-												button(type='button').button.select-option
-													span Variant 2
-												button(type='button').button.select-option
-													span Variant 3
-							.row
-								.input-block
-									.input-block-title
-										span SSN
-									.input
-										input(type='text')
-								.input-block
-									.input-block-title
-										span In Care Of
-									.input
-										input(type='text')
-							.line
-							.row
-								.input-block
-									.input-block-title
-										span Address
-									.input
-										input(type='text')
-								.input-block
-									.input-block-title
-										span Address 2
-									.input
-										input(type='text')
-								.input-block
-									.input-block-title
-										span City
-									.input
-										input(type='text')
-							.row
-								.input-block
-									.input-block-title
-										span State
-									.input
-										.select
-											button(type='button').button.select-head
-												span Select
-												+img('caret_down.svg')
-											.select-body
-												button(type='button').button.select-option
-													span Variant 1
-												button(type='button').button.select-option
-													span Variant 2
-												button(type='button').button.select-option
-													span Variant 3
-								.input-block
-									.input-block-title
-										span Zip
-									.input
-										input(type='text')
-								.input-block
-									.input-block-title
-										span Country
-									.input
-										.select
-											button(type='button').button.select-head
-												span Select
-												+img('caret_down.svg')
-											.select-body
-												button(type='button').button.select-option
-													span Variant 1
-												button(type='button').button.select-option
-													span Variant 2
-												button(type='button').button.select-option
-													span Variant 3
-							.line
-							.row
-								.input-block
-									.input-block-title
-										span Home Phone
-									.input
-										input(type='text')
-								.input-block
-									.input-block-title
-										span Work Phone
-									.input
-										input(type='text')
-								.input-block
-									.input-block-title
-										span Cell Phone
-									.input
-										input(type='text')
-							.row
-								.input-block
-									.input-block-title
-										span Fax
-									.input
-										input(type='text')
-								.input-block
-									.input-block-title
-										span Email
-									.input
-										input(type='text')
-							.line
-							.row
-								.input-block
-									.input-block-title
-										span Client PID
-									.input
-										input(type='text')
-								.input-block
-									.input-block-title
-										span Client Req #
-									.input
-										input(type='text')
-							.button-row
-								button.button.new-patient-button Create Patient
-					.page
+										input(type='text' placeholder='Confirm')
+							.tabs
+								input(type='radio' name='tabs' checked)#tab-1
+								input(type='radio' name='tabs')#tab-2
+								input(type='radio' name='tabs')#tab-3
+								.tabs-control
+									label(for='tab-1')
+										span Payer 1
+									label(for='tab-2')
+										span Payer 2
+									label(for='tab-3')
+										span Payer 3
+								.tabs-body
+									.tabs-page
+										.tabs-row
+											.input-block
+												.input
+													.select
+														button(type='button').button.select-head
+															span Select Payer
+															+img('caret_down.svg')
+														.select-body
+															button(type='button').button.select-option Payer 1
+															button(type='button').button.select-option Payer 2
+															button(type='button').button.select-option Payer 3
+															button(type='button').button.select-option Payer 4
+											.input-block
+												.input-block-title
+													span Name
+													span.red *
+												.input
+													input(type='text')
+										.tabs-row
+											.input-block
+												.input-block-title
+													span Omission Reason
+												.input
+													.select
+														button(type='button').button.select-head
+															span
+															+img('caret_down.svg')
+														.select-body
+															button(type='button').button.select-option Option 1
+															button(type='button').button.select-option Option 2
+															button(type='button').button.select-option Option 3
+									.tabs-page
+										.tabs-row
+											.input-block
+												.input
+													.select
+														button(type='button').button.select-head
+															span Select Payer
+															+img('caret_down.svg')
+														.select-body
+															button(type='button').button.select-option Payer 1
+															button(type='button').button.select-option Payer 2
+															button(type='button').button.select-option Payer 3
+															button(type='button').button.select-option Payer 4
+											.input-block
+												.input-block-title
+													span Name
+													span.red *
+												.input
+													input(type='text')
+										.tabs-row
+											.input-block
+												.input-block-title
+													span Omission Reason
+												.input
+													.select
+														button(type='button').button.select-head
+															span
+															+img('caret_down.svg')
+														.select-body
+															button(type='button').button.select-option Option 1
+															button(type='button').button.select-option Option 2
+															button(type='button').button.select-option Option 3
+									.tabs-page
+										.tabs-row
+											.input-block
+												.input
+													.select
+														button(type='button').button.select-head
+															span Select Payer
+															+img('caret_down.svg')
+														.select-body
+															button(type='button').button.select-option Payer 1
+															button(type='button').button.select-option Payer 2
+															button(type='button').button.select-option Payer 3
+															button(type='button').button.select-option Payer 4
+											.input-block
+												.input-block-title
+													span Name
+													span.red *
+												.input
+													input(type='text')
+										.tabs-row
+											.input-block
+												.input
+													.select
+														button(type='button').button.select-head
+															span Select Payer
+															+img('caret_down.svg')
+														.select-body
+															button(type='button').button.select-option Payer 1
+															button(type='button').button.select-option Payer 2
+															button(type='button').button.select-option Payer 3
+															button(type='button').button.select-option Payer 4
+											.input-block
+												.input-block-title
+													span Name
+													span.red *
+												.input
+													input(type='text')
+										.tabs-row
+											.input-block
+												.input-block-title
+													span Omission Reason
+												.input
+													.select
+														button(type='button').button.select-head
+															span
+															+img('caret_down.svg')
+														.select-body
+															button(type='button').button.select-option Option 1
+															button(type='button').button.select-option Option 2
+															button(type='button').button.select-option Option 3
+						.col.codes
+							h5.codes-title DX Codes
+
+
 	footer.foot
 		+inc('js','front.js')

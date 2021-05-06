@@ -127,6 +127,10 @@ class Front {
       addBtn.addEventListener('click',function (e){
         newPat.classList.add('active');
       })
+      let bgc = newPat.querySelector('.new-patient-bgc');
+      bgc.addEventListener('click',function (e){
+        newPat.classList.remove('active');
+      })
       let cancel = newPat.querySelector('.cancel');
       cancel.addEventListener('click',function (e){
         newPat.classList.remove('active');

@@ -12,411 +12,452 @@ block content
 		a(href='/login').head-logout
 			span Logout
 	main.body
-		section
-			.info-bar
-				.client
-					h2.client-name JOHNSON MEDICAL CLINIC
-					button(type="button").client-change Change
-				.client-actions
-					button(type="button").button Client Info
-					.select
-						input(type='hidden')
-						button.select-head.button
-							span
-								strong Physician:&nbsp;
-								| ATCHASON, ELIZABETH
-							+img('caret_down.svg')
-						.select-body
-							button(data-value='1').select-option.button
-								strong Physician:&nbsp;
-								| ATCHASON, ANNA
-							button(data-value='2').select-option.button
-								strong Physician:&nbsp;
-								| ATCHASON, BETH
-							button(data-value='3').select-option.button
-								strong Physician:&nbsp;
-								| ATCHASON, ELIZABETH
-				ul.client-tasks
-					li
-						strong MDL#
-						span 36474711
-					li
-						strong Date Entered:
-						span 3/18/21
-					li
-						strong Tests Status:
-						span Pending
-					li
-						strong Case#’s:
-						span 21-G000001, 21-S000002
-				.client-view
-					span View Only
-			.start
-				h2.start-title
-					span Start Accesioning
-				form.start-center
-					.start-left
-						.start-left-top
-							+img('scan.png')
-							.start-left-top-text
-								strong First Step:
-								span Scan req QR code
-						.start-left-bottom
-							+img('req_example.jpg')
-							span Core OB/GYN
-					.start-right
-						.form
-							h5.form-title Client Info
-							.form-select
-								h6.form-select-title Client ID | Physician
-								.select
-									input(type='hidden')
-									button(type='button').select-head.button
-										span 10560 | YU, ERIN
-										+img('caret_down.svg')
-									.select-body
-										button(type='button').select-option.button 10560 | YU, ERIN
-										button(type='button').select-option.button 11560 | YU, ERIN
-										button(type='button').select-option.button 10561 | YU, ERIN
-										button(type='button').select-option.button 10565 | YU, ERIN
-							.form-dis
-								h6.form-dis-title.bold Discrepancies
-								.form-dis-row
-									.checkbox
-										input(type='checkbox')#report
-										label(for='report')
-											span
-											span Additional report needs to be added.
-									input(type='text')
-								.form-dis-row
-									.checkbox
-										input(type='checkbox')#new
-										label(for='new')
-											span
-											span New Account to be added to dMDL.
-									input(type='text')
-								.form-dis-row
-									.checkbox
-										input(type='checkbox')#spec
-										label(for='spec')
-											span
-											span No Physician Specified.
-									input(type='text')
-								.form-dis-row.bold
-									span Signature
-									.radio
-										input(type='radio' name='sign' checked)#sign-yes
-										label(for='sign-yes')
-											span
-											span Yes
-									.radio
-										input(type='radio' name='sign')#sign-no
-										label(for='sign-no')
-											span
-											span No
-								.form-dis-row.bold
-									span Send Report to:
-									.checkbox
-										input(type='checkbox')#report-rwj
-										label(for='report-rwj')
-											span
-											span RWJ Hospital
-									.checkbox
-										input(type='checkbox')#report-md
-										label(for='report-md')
-											span
-											span Archer Smith, MD
-					.start-button-block
-						button.start-button
-							span Next
-			.bag
-				.bag-title-row
-					h2.bag-title New Bag
-					.bag-title-btns
-						button.button.cancel Cancel
-						button(disabled).button.hold.inactive Hold
-						button.button.verify Verify
-				.bag-nav-row
-					.bag-nav-btns
-						button(data-pos='0').bag-nav-btn.Specimen-btn.active
-							input(type='number' value='100').value
-							.bag-nav-btn-status
-								.left
-									span
-								.right
-									span
-								span.text
-							span Specimen(s)
-						button(data-pos='1').bag-nav-btn.Patient-btn
-							input(type='number' value='90').value
-							.bag-nav-btn-status
-								.left
-									span
-								.right
-									span
-								span.text
-							span Patient
-						button(data-pos='2').bag-nav-btn.Billing-btn
-							input(type='number' value='0').value
-							.bag-nav-btn-status
-								.left
-									span
-								.right
-									span
-								span.text
-							span Billing
-					button(data-pos='0').bag-nav-next
-						span NEXT
-				.bag-body
-					form.page.page-1
-						.col
-							.input-block.filled
-								.input-block-title
-									span Req Type
-									span.red *
-								.input
-									input(type='text' value='4path General Molecular reqs')
-							.input-block.decline
-								.input-block-title
-									span Tracking #
-									span.red *
-								.input
-									input(type='text' value='00000000')
-									.status
-										span No Tracking
-								.variant
-									span Fedex
-							.input-block
-								.input-block-title
-									span Tracking Comments
-									span.red *
-								.input
-									textarea
-							.input-block.bags
-								.input-block-title
-									span # of bags
-									span.red *
-								.input
-									input(type='text')
-									.checkbox
-										input(type='checkbox')#bags-checkbox
-										label(for='bags-checkbox')
-											span
-											span Opened Bag
-						.col.spec
-							.spec-title
-								span Specimen 1
-							.spec-btns
-								button.add-once
+		.info-bar
+			.client
+				h2.client-name JOHNSON MEDICAL CLINIC
+				button(type="button").client-change Change
+			.client-actions
+				button(type="button").button Client Info
+				.select
+					input(type='hidden')
+					button.select-head.button
+						span
+							strong Physician:&nbsp;
+							| ATCHASON, ELIZABETH
+						+img('caret_down.svg')
+					.select-body
+						button(data-value='1').select-option.button
+							strong Physician:&nbsp;
+							| ATCHASON, ANNA
+						button(data-value='2').select-option.button
+							strong Physician:&nbsp;
+							| ATCHASON, BETH
+						button(data-value='3').select-option.button
+							strong Physician:&nbsp;
+							| ATCHASON, ELIZABETH
+			ul.client-tasks
+				li
+					strong MDL#
+					span 36474711
+				li
+					strong Date Entered:
+					span 3/18/21
+				li
+					strong Tests Status:
+					span Pending
+				li
+					strong Case#’s:
+					span 21-G000001, 21-S000002
+			.client-view
+				span View Only
+		.start
+			h2.start-title
+				span Start Accesioning
+			form.start-center
+				.start-left
+					.start-left-top
+						+img('scan.png')
+						.start-left-top-text
+							strong First Step:
+							span Scan req QR code
+					.start-left-bottom
+						+img('req_example.jpg')
+						span Core OB/GYN
+				.start-right
+					.form
+						h5.form-title Client Info
+						.form-select
+							h6.form-select-title Client ID | Physician
+							.select
+								input(type='hidden')
+								button(type='button').select-head.button
+									span 10560 | YU, ERIN
+									+img('caret_down.svg')
+								.select-body
+									button(type='button').select-option.button 10560 | YU, ERIN
+									button(type='button').select-option.button 11560 | YU, ERIN
+									button(type='button').select-option.button 10561 | YU, ERIN
+									button(type='button').select-option.button 10565 | YU, ERIN
+						.form-dis
+							h6.form-dis-title.bold Discrepancies
+							.form-dis-row
+								.checkbox
+									input(type='checkbox')#report
+									label(for='report')
+										span
+										span Additional report needs to be added.
+								input(type='text')
+							.form-dis-row
+								.checkbox
+									input(type='checkbox')#new
+									label(for='new')
+										span
+										span New Account to be added to dMDL.
+								input(type='text')
+							.form-dis-row
+								.checkbox
+									input(type='checkbox')#spec
+									label(for='spec')
+										span
+										span No Physician Specified.
+								input(type='text')
+							.form-dis-row.bold
+								span Signature
+								.radio
+									input(type='radio' name='sign' checked)#sign-yes
+									label(for='sign-yes')
+										span
+										span Yes
+								.radio
+									input(type='radio' name='sign')#sign-no
+									label(for='sign-no')
+										span
+										span No
+							.form-dis-row.bold
+								span Send Report to:
+								.checkbox
+									input(type='checkbox')#report-rwj
+									label(for='report-rwj')
+										span
+										span RWJ Hospital
+								.checkbox
+									input(type='checkbox')#report-md
+									label(for='report-md')
+										span
+										span Archer Smith, MD
+				.start-button-block
+					button.start-button
+						span Next
+		.bag
+			.bag-title-row
+				h2.bag-title New Bag
+				.bag-title-btns
+					button.button.cancel Cancel
+					button(disabled).button.hold.inactive Hold
+					button.button.verify Verify
+			.bag-nav-row
+				.bag-nav-btns
+					button(data-pos='0').bag-nav-btn.Specimen-btn.active
+						input(type='number' value='100').value
+						.bag-nav-btn-status
+							.left
+								span
+							.right
+								span
+							span.text
+						span Specimen(s)
+					button(data-pos='1').bag-nav-btn.Patient-btn
+						input(type='number' value='45').value
+						.bag-nav-btn-status
+							.left
+								span
+							.right
+								span
+							span.text
+						span Patient
+					button(data-pos='2').bag-nav-btn.Billing-btn
+						input(type='number' value='0').value
+						.bag-nav-btn-status
+							.left
+								span
+							.right
+								span
+							span.text
+						span Billing
+				button(data-pos='0').bag-nav-next
+					span NEXT
+			.bag-body
+				form.page.page-1
+					.col
+						.input-block.filled
+							.input-block-title
+								span Req Type
+								span.red *
+							.input
+								input(type='text' value='4path General Molecular reqs')
+						.input-block.decline
+							.input-block-title
+								span Tracking #
+								span.red *
+							.input
+								input(type='text' value='00000000')
+								.status
+									span No Tracking
+							.variant
+								span Fedex
+						.input-block
+							.input-block-title
+								span Tracking Comments
+								span.red *
+							.input
+								textarea
+						.input-block.bags
+							.input-block-title
+								span # of bags
+								span.red *
+							.input
+								input(type='text')
+								.checkbox
+									input(type='checkbox')#bags-checkbox
+									label(for='bags-checkbox')
+										span
+										span Opened Bag
+					.col.spec
+						.spec-title
+							span Specimen 1
+						.spec-btns
+							button.add-once
+								span.before
+								span Add
+							button.add-tripple
+								span
 									span.before
-									span Add
-								button.add-tripple
-									span
-										span.before
-										span.before
-										span.before
-									span Add
-						.col.collection
-							.input-block.collection-title
+									span.before
+									span.before
+								span Add
+					.col.collection
+						.input-block.collection-title
+							.input-block-title
+								span Collection Date and Time
+								span.red *
+						.collection-row
+							.input-block
 								.input-block-title
-									span Collection Date and Time
+									span Type
 									span.red *
-							.collection-row
-								.input-block
-									.input-block-title
-										span Type
-										span.red *
-									.input
-										.select.type
-											button(type='button').button.select-head
-												span
-												+img('caret_down.svg')
-											.select-body
-												button(type='button').select-option.button Option 1
-												button(type='button').select-option.button Option 2
-								.input-block.qty
-									.input-block-title
-										span Qty
-										span.red *
-									.input
-										input(type='text')
-								.scroll
-									input(type='hidden')
-									.scroll-line
-										button.scroll-button
+								.input
+									.select.type
+										button(type='button').button.select-head
 											span
-									.scroll-values
-										span 10/22
-										span 10/21
-										span 10/20
-										span 10/19
-										span 10/18
-										span 10/17
-								.time
+											+img('caret_down.svg')
+										.select-body
+											button(type='button').select-option.button Option 1
+											button(type='button').select-option.button Option 2
+							.input-block.qty
+								.input-block-title
+									span Qty
+									span.red *
+								.input
+									input(type='text')
+							.scroll
+								input(type='hidden')
+								.scroll-line
+									button.scroll-button
+										span
+								.scroll-values
+									span 10/22
+									span 10/21
+									span 10/20
+									span 10/19
+									span 10/18
+									span 10/17
+							.time
+								input
+								span :
+								input
+								span am pm
+						.collection-row
+							.input-block
+								.input-block-title
+									span PID
+									span.red *
+								.input
+									.select.pid
+										button(type='button').button.select-head
+											span >1
+											+img('caret_down.svg')
+										.select-body
+											button(type='button').select-option.button >2
+											button(type='button').select-option.button >3
+							.input-block
+								.input-block-title
+									span Color
+									span.red *
+								.input
+									.select
+										button(type='button').button.select-head
+											span Select
+											+img('caret_down.svg')
+										.select-body
+											button(type='button').select-option.button Red
+											button(type='button').select-option.button Green
+											button(type='button').select-option.button Blue
+											button(type='button').select-option.button Black
+											button(type='button').select-option.button White
+							.input-block
+								.input-block-title
+									span Turbidity
+								.input
+									.select
+										button(type='button').button.select-head
+											span Select
+											+img('caret_down.svg')
+										.select-body
+											button(type='button').select-option.button Variant 1
+											button(type='button').select-option.button Variant 2
+							.input-block
+								.input-block-title
+									span Cold Pack
+								.input
+									.select
+										button(type='button').button.select-head
+											span Select
+											+img('caret_down.svg')
+										.select-body
+											button(type='button').select-option.button Variant 1
+											button(type='button').select-option.button Variant 2
+							.input-block
+								.input-block-title
+									span Location
+								.input
+									.select
+										button(type='button').button.select-head
+											span Select
+											+img('caret_down.svg')
+										.select-body
+											button(type='button').select-option.button Variant 1
+											button(type='button').select-option.button Variant 2
+							.input-block
+								.input-block-title
+									span Method
+								.input
+									.select.method
+										button(type='button').button.select-head
+											span Select
+											+img('caret_down.svg')
+										.select-body
+											button(type='button').select-option.button Variant 1
+											button(type='button').select-option.button Variant 2
+						.collection-row
+							.input-block.method-comments
+								.input-block-title
+									span Method Comments
+								.input
 									input
-									span :
-									input
-									span am pm
-							.collection-row
-								.input-block
-									.input-block-title
-										span PID
-										span.red *
-									.input
-										.select.pid
-											button(type='button').button.select-head
-												span >1
-												+img('caret_down.svg')
-											.select-body
-												button(type='button').select-option.button >2
-												button(type='button').select-option.button >3
-								.input-block
-									.input-block-title
-										span Color
-										span.red *
-									.input
-										.select
-											button(type='button').button.select-head
-												span Select
-												+img('caret_down.svg')
-											.select-body
-												button(type='button').select-option.button Red
-												button(type='button').select-option.button Green
-												button(type='button').select-option.button Blue
-												button(type='button').select-option.button Black
-												button(type='button').select-option.button White
-								.input-block
-									.input-block-title
-										span Turbidity
-									.input
-										.select
-											button(type='button').button.select-head
-												span Select
-												+img('caret_down.svg')
-											.select-body
-												button(type='button').select-option.button Variant 1
-												button(type='button').select-option.button Variant 2
-								.input-block
-									.input-block-title
-										span Cold Pack
-									.input
-										.select
-											button(type='button').button.select-head
-												span Select
-												+img('caret_down.svg')
-											.select-body
-												button(type='button').select-option.button Variant 1
-												button(type='button').select-option.button Variant 2
-								.input-block
-									.input-block-title
-										span Location
-									.input
-										.select
-											button(type='button').button.select-head
-												span Select
-												+img('caret_down.svg')
-											.select-body
-												button(type='button').select-option.button Variant 1
-												button(type='button').select-option.button Variant 2
-								.input-block
-									.input-block-title
-										span Method
-									.input
-										.select.method
-											button(type='button').button.select-head
-												span Select
-												+img('caret_down.svg')
-											.select-body
-												button(type='button').select-option.button Variant 1
-												button(type='button').select-option.button Variant 2
-							.collection-row
-								.input-block.method-comments
-									.input-block-title
-										span Method Comments
-									.input
-										input
-							.collection-row
-								.input-block.tests
-									.input-block-title
-										span Tests
-										span.red *
-									.tests-body
-										.tests-title
-											span Add codes seperated by commas
-											button.add Add
-										.row
-											.checkbox
-												input(type='checkbox')#test-1
-												label(for='test-1')
-													span
-													span
-														strong 166&nbsp;
-														em Bacterial Vaginosis Panel (with Lactobacillus Profiling) by Quantitative Real-Time PCR
-										.row
-											.checkbox
-												input(type='checkbox')#test-2
-												label(for='test-2')
-													span
-													span
-														strong 166&nbsp;
-														em Candida Vaginitis Panel by Real-Time PCR
-										.row
-											.checkbox
-												input(type='checkbox')#test-3
-												label(for='test-3')
-													span
-													span
-														strong 166&nbsp;
-														em Leukorrhea Panel by Real-Time PCR
-								.input-block.discrepancies
-									.input-block-title
-										span Discrepancies
-									.discrepancies-body
-										.row
-											.checkbox
-												input(type='checkbox')#dis-1
-												label(for='dis-1')
-													span
-													span Additional Document
-											input(type='text')
-										.row
-											.checkbox
-												input(type='checkbox')#dis-2
-												label(for='dis-2')
-													span
-													span Conflict with panel accessioned.
-											input(type='text')
-										.row
-											.checkbox
-												input(type='checkbox')#dis-3
-												label(for='dis-3')
-													span
-													span Specimen vial unlabeled & packaged with another unlabeled MDL. SPECIFY MDL#.
-											input(type='text')
+						.collection-row
+							.input-block.tests
+								.input-block-title
+									span Tests
+									span.red *
+								.tests-body
+									.tests-title
+										span Add codes seperated by commas
+										button.add Add
+									.row
+										.checkbox
+											input(type='checkbox')#test-1
+											label(for='test-1')
+												span
+												span
+													strong 166&nbsp;
+													em Bacterial Vaginosis Panel (with Lactobacillus Profiling) by Quantitative Real-Time PCR
+									.row
+										.checkbox
+											input(type='checkbox')#test-2
+											label(for='test-2')
+												span
+												span
+													strong 166&nbsp;
+													em Candida Vaginitis Panel by Real-Time PCR
+									.row
+										.checkbox
+											input(type='checkbox')#test-3
+											label(for='test-3')
+												span
+												span
+													strong 166&nbsp;
+													em Leukorrhea Panel by Real-Time PCR
+							.input-block.discrepancies
+								.input-block-title
+									span Discrepancies
+								.discrepancies-body
+									.row
+										.checkbox
+											input(type='checkbox')#dis-1
+											label(for='dis-1')
+												span
+												span Additional Document
+										input(type='text')
+									.row
+										.checkbox
+											input(type='checkbox')#dis-2
+											label(for='dis-2')
+												span
+												span Conflict with panel accessioned.
+										input(type='text')
+									.row
+										.checkbox
+											input(type='checkbox')#dis-3
+											label(for='dis-3')
+												span
+												span Specimen vial unlabeled & packaged with another unlabeled MDL. SPECIFY MDL#.
+										input(type='text')
 
-					.page.page-2
-						form.search.col
-							.input-block
-								.input-block-title
-									span Name
-								.input
-									input(type='text' placeholder='First or Last')
-							.input-block
-								.input-block-title
-									span DOB
-								.input
-									input(type='text' placeholder='mm/dd/yyyy')
-							.input-block
-								.input-block-title
-									span ID
-								.input
-									input(type='text' name='MLD-id')
-									.status
-										button.active MDL
-										button Client
-							button.button.search-button
-						.col.search-results
-							table.table.search-results-table
+				.page.page-2
+					form.search.col
+						.input-block
+							.input-block-title
+								span Name
+							.input
+								input(type='text' placeholder='First or Last')
+						.input-block
+							.input-block-title
+								span DOB
+							.input
+								input(type='text' placeholder='mm/dd/yyyy')
+						.input-block
+							.input-block-title
+								span ID
+							.input
+								input(type='text' name='MLD-id')
+								.status
+									button.active MDL
+									button Client
+						button.button.search-button
+					.col.search-results
+						table.table.search-results-table
+							thead
+								tr
+									th
+										span ID
+									th
+										span Name
+									th
+										span DOB
+									th
+										span SSN
+									th
+										span Phone
+							tbody
+								tr(data-target='details')
+									td
+										span 00000000
+									td
+										span John Doe
+									td
+										span 1/1/1990
+									td
+										span 000-00-0000
+									td
+										span 000-000-0000
+								tr
+									td
+										span
+									td
+										span
+									td
+										span
+									td
+										span
+									td
+										span
+						button.add-once.add-patient
+							span.before
+							span Add New Patient
+					.details
+						button.details-close
+						.col.col-first
+							table.table
 								thead
 									tr
 										th
@@ -430,600 +471,560 @@ block content
 										th
 											span Phone
 								tbody
-									tr(data-target='details')
-										td
-											span 00000000
-										td
-											span John Doe
-										td
-											span 1/1/1990
-										td
-											span 000-00-0000
-										td
-											span 000-000-0000
 									tr
 										td
 											span
+												em 00000000
 										td
 											span
+												em John Doe
 										td
 											span
+												em 1/1/1990
 										td
 											span
+												em 000-00-0000
 										td
 											span
-							button.add-once.add-patient
-								span.before
-								span Add New Patient
-						.details
-							button.details-close
-							.col.col-first
-								table.table
-									thead
-										tr
-											th
-												span ID
-											th
-												span Name
-											th
-												span DOB
-											th
-												span SSN
-											th
-												span Phone
-									tbody
-										tr
-											td
-												span
-													em 00000000
-											td
-												span
-													em John Doe
-											td
-												span
-													em 1/1/1990
-											td
-												span
-													em 000-00-0000
-											td
-												span
-													em 000-000-0000
-								.details-info
-									.details-info-row
-										.col
-											.row.filled
-												span First Name:
-												span John
-											.row
-												span Middle Name:
-												span
-											.row.filled
-												span Last Name:
-												span Doe
-											.row.filled
-												span DOB:
-												span 1/1/1990
-											.row.filled
-												span Gender:
-												span Male
-											.row
-												span Ethnicity:
-												span
-											.row
-												span SSN:
-												span
-											.row
-												span In Care Of:
-												span
-											.row
-												span Address:
-												span
-											.row
-												span Client PID:
-												span
-										.col
-											.row
-												span Address 2
-											.row.filled
-												span City:
-												span Hamilton
-											.row.filled
-												span State:
-												span New Jersey
-											.row
-												span Zip:
-												span
-											.row
-												span Country:
-												span
-											.row
-												span Home Phone:
-												span
-											.row
-												span Word Phone:
-												span
-											.row
-												span Cell Phone:
-												span
-											.row
-												span Fax:
-												span
-											.row
-												span Email:
-												span
-									.details-dis
-										.details-dis-title Discrepancies
-										.details-dis-body
-											.row
-												.checkbox
-													input(type='checkbox')#disc-1
-													label(for='disc-1')
-														span
-														span Additional Document
-												input(type='text')
-											.row
-												.checkbox
-													input(type='checkbox')#disc-2
-													label(for='disc-2')
-														span
-														span Conflict with panel accessioned
-												input(type='text')
-											.row
-												.checkbox
-													input(type='checkbox')#disc-3
-													label(for='disc-3')
-														span
-														span Lorem ipsum dolor
-												input(type='text')
-											.row
-												.checkbox
-													input(type='checkbox')#disc-4
-													label(for='disc-4')
-														span
-														span Lorem ipsum dolor
-												input(type='text')
-											.row
-												.checkbox
-													input(type='checkbox')#disc-5
-													label(for='disc-5')
-														span
-														span Lorem ipsum dolor
-												input(type='text')
+												em 000-000-0000
+							.details-info
+								.details-info-row
+									.col
+										.row.filled
+											span First Name:
+											span John
+										.row
+											span Middle Name:
+											span
+										.row.filled
+											span Last Name:
+											span Doe
+										.row.filled
+											span DOB:
+											span 1/1/1990
+										.row.filled
+											span Gender:
+											span Male
+										.row
+											span Ethnicity:
+											span
+										.row
+											span SSN:
+											span
+										.row
+											span In Care Of:
+											span
+										.row
+											span Address:
+											span
+										.row
+											span Client PID:
+											span
+									.col
+										.row
+											span Address 2
+										.row.filled
+											span City:
+											span Hamilton
+										.row.filled
+											span State:
+											span New Jersey
+										.row
+											span Zip:
+											span
+										.row
+											span Country:
+											span
+										.row
+											span Home Phone:
+											span
+										.row
+											span Word Phone:
+											span
+										.row
+											span Cell Phone:
+											span
+										.row
+											span Fax:
+											span
+										.row
+											span Email:
+											span
+								.details-dis
+									.details-dis-title Discrepancies
+									.details-dis-body
+										.row
+											.checkbox
+												input(type='checkbox')#disc-1
+												label(for='disc-1')
+													span
+													span Additional Document
+											input(type='text')
+										.row
+											.checkbox
+												input(type='checkbox')#disc-2
+												label(for='disc-2')
+													span
+													span Conflict with panel accessioned
+											input(type='text')
+										.row
+											.checkbox
+												input(type='checkbox')#disc-3
+												label(for='disc-3')
+													span
+													span Lorem ipsum dolor
+											input(type='text')
+										.row
+											.checkbox
+												input(type='checkbox')#disc-4
+												label(for='disc-4')
+													span
+													span Lorem ipsum dolor
+											input(type='text')
+										.row
+											.checkbox
+												input(type='checkbox')#disc-5
+												label(for='disc-5')
+													span
+													span Lorem ipsum dolor
+											input(type='text')
 
-							.col
-								form.clinical
-									.clinical-title Clinical Information
+						.col
+							form.clinical
+								.clinical-title Clinical Information
+								.row
+									.input-block
+										.input-block-title
+											span Date of Last Pap
+											span.red *
+										.input
+											input(type='text')
+									.input-block
+										.input-block-title
+											span Date of LMP
+										.input
+											input(type='text')
+								.clinical-block.results
+									.clinical-block-title Previous Results
 									.row
+										.checkbox
+											input(type='checkbox')#clinical-1
+											label(for='clinical-1')
+												span
+												span Normal
+										.checkbox
+											input(type='checkbox')#clinical-2
+											label(for='clinical-2')
+												span
+												span Reactive
+										.checkbox
+											input(type='checkbox')#clinical-3
+											label(for='clinical-3')
+												span
+												span Other
+										.checkbox
+											input(type='checkbox')#clinical-4
+											label(for='clinical-4')
+												span
+												span ASCUS
+										.checkbox
+											input(type='checkbox')#clinical-5
+											label(for='clinical-5')
+												span
+												span CIN 3
+									.row
+										.checkbox
+											input(type='checkbox')#clinical-6
+											label(for='clinical-6')
+												span
+												span LGSIL
+										.checkbox
+											input(type='checkbox')#clinical-7
+											label(for='clinical-7')
+												span
+												span HGSIL
+										.checkbox
+											input(type='checkbox')#clinical-8
+											label(for='clinical-8')
+												span
+												span CIN 1
+										.checkbox
+											input(type='checkbox')#clinical-9
+											label(for='clinical-9')
+												span
+												span CIN 2
+								.clinical-block.check
+									.clinical-block-title Previous Results
+									.row
+										.checkbox
+											input(type='checkbox')#clinical-11
+											label(for='clinical-11')
+												span
+												span H/O Neoplasm uterus/corpus uteri
+										.checkbox
+											input(type='checkbox')#clinical-12
+											label(for='clinical-12')
+												span
+												span Menopausal/Hysterectomy
+									.row
+										.checkbox
+											input(type='checkbox')#clinical-13
+											label(for='clinical-13')
+												span
+												span BCP
+										.checkbox
+											input(type='checkbox')#clinical-14
+											label(for='clinical-14')
+												span
+												span Hysterectomy
+									.row
+										.checkbox
+											input(type='checkbox')#clinical-15
+											label(for='clinical-15')
+												span
+												span Biopsy Today
+										.checkbox
+											input(type='checkbox')#clinical-16
+											label(for='clinical-16')
+												span
+												span Lactating
+								.clinical-block
+									.clinical-block-title Notes
+									textarea.clinical-block-textarea
+				.page.page-3.billing
+					.col
+						.checkbox
+							input(type='checkbox')#billing-1
+							label(for='billing-1')
+								span
+								span Uninsured Patient
+						.row
+							.input-block
+								.input-block-title
+									span Policy
+									span.red *
+								.input
+									input(type='text')
+							.input-block
+								.input
+									input(type='text' placeholder='Confirm')
+						.tabs
+							input(type='radio' name='tabs' checked)#tab-1
+							input(type='radio' name='tabs')#tab-2
+							input(type='radio' name='tabs')#tab-3
+							.tabs-control
+								label(for='tab-1')
+									span Payer 1
+								label(for='tab-2')
+									span Payer 2
+								label(for='tab-3')
+									span Payer 3
+							.tabs-body
+								.tabs-page
+									.tabs-row
+										.input-block
+											.input
+												.select
+													button(type='button').button.select-head
+														span Select Payer
+														+img('caret_down.svg')
+													.select-body
+														button(type='button').button.select-option Payer 1
+														button(type='button').button.select-option Payer 2
+														button(type='button').button.select-option Payer 3
+														button(type='button').button.select-option Payer 4
 										.input-block
 											.input-block-title
-												span Date of Last Pap
+												span Name
 												span.red *
 											.input
 												input(type='text')
+									.tabs-row
 										.input-block
 											.input-block-title
-												span Date of LMP
+												span Omission Reason
+											.input
+												.select
+													button(type='button').button.select-head
+														span
+														+img('caret_down.svg')
+													.select-body
+														button(type='button').button.select-option Option 1
+														button(type='button').button.select-option Option 2
+														button(type='button').button.select-option Option 3
+								.tabs-page
+									.tabs-row
+										.input-block
+											.input
+												.select
+													button(type='button').button.select-head
+														span Select Payer
+														+img('caret_down.svg')
+													.select-body
+														button(type='button').button.select-option Payer 1
+														button(type='button').button.select-option Payer 2
+														button(type='button').button.select-option Payer 3
+														button(type='button').button.select-option Payer 4
+										.input-block
+											.input-block-title
+												span Name
+												span.red *
 											.input
 												input(type='text')
-									.clinical-block.results
-										.clinical-block-title Previous Results
-										.row
-											.checkbox
-												input(type='checkbox')#clinical-1
-												label(for='clinical-1')
-													span
-													span Normal
-											.checkbox
-												input(type='checkbox')#clinical-2
-												label(for='clinical-2')
-													span
-													span Reactive
-											.checkbox
-												input(type='checkbox')#clinical-3
-												label(for='clinical-3')
-													span
-													span Other
-											.checkbox
-												input(type='checkbox')#clinical-4
-												label(for='clinical-4')
-													span
-													span ASCUS
-											.checkbox
-												input(type='checkbox')#clinical-5
-												label(for='clinical-5')
-													span
-													span CIN 3
-										.row
-											.checkbox
-												input(type='checkbox')#clinical-6
-												label(for='clinical-6')
-													span
-													span LGSIL
-											.checkbox
-												input(type='checkbox')#clinical-7
-												label(for='clinical-7')
-													span
-													span HGSIL
-											.checkbox
-												input(type='checkbox')#clinical-8
-												label(for='clinical-8')
-													span
-													span CIN 1
-											.checkbox
-												input(type='checkbox')#clinical-9
-												label(for='clinical-9')
-													span
-													span CIN 2
-									.clinical-block.check
-										.clinical-block-title Previous Results
-										.row
-											.checkbox
-												input(type='checkbox')#clinical-11
-												label(for='clinical-11')
-													span
-													span H/O Neoplasm uterus/corpus uteri
-											.checkbox
-												input(type='checkbox')#clinical-12
-												label(for='clinical-12')
-													span
-													span Menopausal/Hysterectomy
-										.row
-											.checkbox
-												input(type='checkbox')#clinical-13
-												label(for='clinical-13')
-													span
-													span BCP
-											.checkbox
-												input(type='checkbox')#clinical-14
-												label(for='clinical-14')
-													span
-													span Hysterectomy
-										.row
-											.checkbox
-												input(type='checkbox')#clinical-15
-												label(for='clinical-15')
-													span
-													span Biopsy Today
-											.checkbox
-												input(type='checkbox')#clinical-16
-												label(for='clinical-16')
-													span
-													span Lactating
-									.clinical-block
-										.clinical-block-title Notes
-										textarea.clinical-block-textarea
-						form.new-patient
-							.new-patient-left
-								span Client Notes
-								p
-									strong 9/29/2015 at 9:30pm
-									em Lorem ipsum dolor
-							.new-patient-right
-								.new-patient-title-row
-									h6.new-patient-title Add New Patient
-									button(type='button').button.cancel
-										span Cancel
-								.row.row-first
-									.input-block
-										.input-block-title
-											span First Name
-											span.red *
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span Middle Name
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span Last Name
-											span.red *
-										.input
-											input(type='text')
-								.row
-									.input-block
-										.input-block-title
-											span DOB
-											span.red *
-										.input
-											input(type='text' placeholder='mm/dd/yyyy')
-									.input-block
-										.input-block-title
-											span Gender
-											span.red *
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span Ethnicity
-											span.red *
-										.input
-											.select
-												button(type='button').button.select-head
-													span Select
-													+img('caret_down.svg')
-												.select-body
-													button(type='button').button.select-option
-														span Variant 1
-													button(type='button').button.select-option
-														span Variant 2
-													button(type='button').button.select-option
-														span Variant 3
-								.row
-									.input-block
-										.input-block-title
-											span SSN
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span In Care Of
-										.input
-											input(type='text')
-								.line
-								.row
-									.input-block
-										.input-block-title
-											span Address
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span Address 2
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span City
-										.input
-											input(type='text')
-								.row
-									.input-block
-										.input-block-title
-											span State
-										.input
-											.select
-												button(type='button').button.select-head
-													span Select
-													+img('caret_down.svg')
-												.select-body
-													button(type='button').button.select-option
-														span Variant 1
-													button(type='button').button.select-option
-														span Variant 2
-													button(type='button').button.select-option
-														span Variant 3
-									.input-block
-										.input-block-title
-											span Zip
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span Country
-										.input
-											.select
-												button(type='button').button.select-head
-													span Select
-													+img('caret_down.svg')
-												.select-body
-													button(type='button').button.select-option
-														span Variant 1
-													button(type='button').button.select-option
-														span Variant 2
-													button(type='button').button.select-option
-														span Variant 3
-								.line
-								.row
-									.input-block
-										.input-block-title
-											span Home Phone
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span Work Phone
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span Cell Phone
-										.input
-											input(type='text')
-								.row
-									.input-block
-										.input-block-title
-											span Fax
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span Email
-										.input
-											input(type='text')
-								.line
-								.row
-									.input-block
-										.input-block-title
-											span Client PID
-										.input
-											input(type='text')
-									.input-block
-										.input-block-title
-											span Client Req #
-										.input
-											input(type='text')
-								.button-row
-									button.button.new-patient-button Create Patient
-					.page.page-3.billing
-						.col
-							.checkbox
-								input(type='checkbox')#billing-1
-								label(for='billing-1')
-									span
-									span Uninsured Patient
-							.row
+									.tabs-row
+										.input-block
+											.input-block-title
+												span Omission Reason
+											.input
+												.select
+													button(type='button').button.select-head
+														span
+														+img('caret_down.svg')
+													.select-body
+														button(type='button').button.select-option Option 1
+														button(type='button').button.select-option Option 2
+														button(type='button').button.select-option Option 3
+								.tabs-page
+									.tabs-row
+										.input-block
+											.input
+												.select
+													button(type='button').button.select-head
+														span Select Payer
+														+img('caret_down.svg')
+													.select-body
+														button(type='button').button.select-option Payer 1
+														button(type='button').button.select-option Payer 2
+														button(type='button').button.select-option Payer 3
+														button(type='button').button.select-option Payer 4
+										.input-block
+											.input-block-title
+												span Name
+												span.red *
+											.input
+												input(type='text')
+									.tabs-row
+										.input-block
+											.input
+												.select
+													button(type='button').button.select-head
+														span Select Payer
+														+img('caret_down.svg')
+													.select-body
+														button(type='button').button.select-option Payer 1
+														button(type='button').button.select-option Payer 2
+														button(type='button').button.select-option Payer 3
+														button(type='button').button.select-option Payer 4
+										.input-block
+											.input-block-title
+												span Name
+												span.red *
+											.input
+												input(type='text')
+									.tabs-row
+										.input-block
+											.input-block-title
+												span Omission Reason
+											.input
+												.select
+													button(type='button').button.select-head
+														span
+														+img('caret_down.svg')
+													.select-body
+														button(type='button').button.select-option Option 1
+														button(type='button').button.select-option Option 2
+														button(type='button').button.select-option Option 3
+					.col.codes
+						h5.codes-title DX Codes
+						.row
+							.codes-number 1.
+							input(type='text').codes-input
+							input(type='text').codes-input
+							input(type='text').codes-input
+							.codes-point .
+							input(type='text').codes-input
+							input(type='text').codes-input
+							input(type='text').codes-input
+							span.codes-comment Congenital syphilis., unspecified
+						.row
+							.codes-number 2.
+							input(type='text').codes-input
+							input(type='text').codes-input
+							input(type='text').codes-input
+							.codes-point
+							input(type='text').codes-input
+							input(type='text').codes-input
+							input(type='text').codes-input
+						button.add-once.add-patient.codes-button
+							span.before
+							span Add
+
+
+				form.new-patient
+					.new-patient-inner
+						.new-patient-left
+							span Client Notes
+							p
+								strong 9/29/2015 at 9:30pm
+								em Lorem ipsum dolor
+						.new-patient-right
+							.new-patient-title-row
+								h6.new-patient-title Add New Patient
+								button(type='button').button.cancel
+									span Cancel
+							.row.row-first
 								.input-block
 									.input-block-title
-										span Policy
+										span First Name
 										span.red *
 									.input
 										input(type='text')
 								.input-block
+									.input-block-title
+										span Middle Name
 									.input
-										input(type='text' placeholder='Confirm')
-							.tabs
-								input(type='radio' name='tabs' checked)#tab-1
-								input(type='radio' name='tabs')#tab-2
-								input(type='radio' name='tabs')#tab-3
-								.tabs-control
-									label(for='tab-1')
-										span Payer 1
-									label(for='tab-2')
-										span Payer 2
-									label(for='tab-3')
-										span Payer 3
-								.tabs-body
-									.tabs-page
-										.tabs-row
-											.input-block
-												.input
-													.select
-														button(type='button').button.select-head
-															span Select Payer
-															+img('caret_down.svg')
-														.select-body
-															button(type='button').button.select-option Payer 1
-															button(type='button').button.select-option Payer 2
-															button(type='button').button.select-option Payer 3
-															button(type='button').button.select-option Payer 4
-											.input-block
-												.input-block-title
-													span Name
-													span.red *
-												.input
-													input(type='text')
-										.tabs-row
-											.input-block
-												.input-block-title
-													span Omission Reason
-												.input
-													.select
-														button(type='button').button.select-head
-															span
-															+img('caret_down.svg')
-														.select-body
-															button(type='button').button.select-option Option 1
-															button(type='button').button.select-option Option 2
-															button(type='button').button.select-option Option 3
-									.tabs-page
-										.tabs-row
-											.input-block
-												.input
-													.select
-														button(type='button').button.select-head
-															span Select Payer
-															+img('caret_down.svg')
-														.select-body
-															button(type='button').button.select-option Payer 1
-															button(type='button').button.select-option Payer 2
-															button(type='button').button.select-option Payer 3
-															button(type='button').button.select-option Payer 4
-											.input-block
-												.input-block-title
-													span Name
-													span.red *
-												.input
-													input(type='text')
-										.tabs-row
-											.input-block
-												.input-block-title
-													span Omission Reason
-												.input
-													.select
-														button(type='button').button.select-head
-															span
-															+img('caret_down.svg')
-														.select-body
-															button(type='button').button.select-option Option 1
-															button(type='button').button.select-option Option 2
-															button(type='button').button.select-option Option 3
-									.tabs-page
-										.tabs-row
-											.input-block
-												.input
-													.select
-														button(type='button').button.select-head
-															span Select Payer
-															+img('caret_down.svg')
-														.select-body
-															button(type='button').button.select-option Payer 1
-															button(type='button').button.select-option Payer 2
-															button(type='button').button.select-option Payer 3
-															button(type='button').button.select-option Payer 4
-											.input-block
-												.input-block-title
-													span Name
-													span.red *
-												.input
-													input(type='text')
-										.tabs-row
-											.input-block
-												.input
-													.select
-														button(type='button').button.select-head
-															span Select Payer
-															+img('caret_down.svg')
-														.select-body
-															button(type='button').button.select-option Payer 1
-															button(type='button').button.select-option Payer 2
-															button(type='button').button.select-option Payer 3
-															button(type='button').button.select-option Payer 4
-											.input-block
-												.input-block-title
-													span Name
-													span.red *
-												.input
-													input(type='text')
-										.tabs-row
-											.input-block
-												.input-block-title
-													span Omission Reason
-												.input
-													.select
-														button(type='button').button.select-head
-															span
-															+img('caret_down.svg')
-														.select-body
-															button(type='button').button.select-option Option 1
-															button(type='button').button.select-option Option 2
-															button(type='button').button.select-option Option 3
-						.col.codes
-							h5.codes-title DX Codes
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Last Name
+										span.red *
+									.input
+										input(type='text')
 							.row
-								.codes-number 1.
-								input(type='text').codes-input
-								input(type='text').codes-input
-								input(type='text').codes-input
-								.codes-point
-								input(type='text').codes-input
-								input(type='text').codes-input
-								input(type='text').codes-input
-								span.codes-comment Congenital syphilis., unspecified
+								.input-block
+									.input-block-title
+										span DOB
+										span.red *
+									.input
+										input(type='text' placeholder='mm/dd/yyyy')
+								.input-block
+									.input-block-title
+										span Gender
+										span.red *
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Ethnicity
+										span.red *
+									.input
+										.select
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').button.select-option
+													span Variant 1
+												button(type='button').button.select-option
+													span Variant 2
+												button(type='button').button.select-option
+													span Variant 3
 							.row
-								.codes-number 2.
-								input(type='text').codes-input
-								input(type='text').codes-input
-								input(type='text').codes-input
-								.codes-point
-								input(type='text').codes-input
-								input(type='text').codes-input
-								input(type='text').codes-input
-							button.add-once.add-patient
-								span.before
-								span Add
-
-
+								.input-block
+									.input-block-title
+										span SSN
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span In Care Of
+									.input
+										input(type='text')
+							.line
+							.row
+								.input-block
+									.input-block-title
+										span Address
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Address 2
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span City
+									.input
+										input(type='text')
+							.row
+								.input-block
+									.input-block-title
+										span State
+									.input
+										.select
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').button.select-option
+													span Variant 1
+												button(type='button').button.select-option
+													span Variant 2
+												button(type='button').button.select-option
+													span Variant 3
+								.input-block
+									.input-block-title
+										span Zip
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Country
+									.input
+										.select
+											button(type='button').button.select-head
+												span Select
+												+img('caret_down.svg')
+											.select-body
+												button(type='button').button.select-option
+													span Variant 1
+												button(type='button').button.select-option
+													span Variant 2
+												button(type='button').button.select-option
+													span Variant 3
+							.line
+							.row
+								.input-block
+									.input-block-title
+										span Home Phone
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Work Phone
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Cell Phone
+									.input
+										input(type='text')
+							.row
+								.input-block
+									.input-block-title
+										span Fax
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Email
+									.input
+										input(type='text')
+							.line
+							.row
+								.input-block
+									.input-block-title
+										span Client PID
+									.input
+										input(type='text')
+								.input-block
+									.input-block-title
+										span Client Req #
+									.input
+										input(type='text')
+							.button-row
+								button.button.new-patient-button Create Patient
+					.new-patient-bgc
 	footer.foot
 		+inc('js','front.js')

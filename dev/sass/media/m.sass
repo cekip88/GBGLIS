@@ -1021,6 +1021,10 @@ body
 		padding: 10px 45px 0
 		.add-once
 			margin: 40px 0 0 20px
+		&-table
+			tbody
+				tr
+					cursor: pointer
 .details
 	@extend %df
 	width: calc(100% - 60px)
@@ -1154,13 +1158,26 @@ body
 
 
 .new-patient
-	width: 100%
-	padding-left: 30px
-	transform: translateY(100%)
-	position: relative
+	+wh(100vw,100vh)
+	transform: translateX(100vw)
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 10
 	transition: .35s
 	&.active
-		transform: translateY(0)
+		transform: translateX(0)
+	&-inner
+		position: absolute
+		right: 0
+		top: 100px
+		z-index: 1
+	&-bgc
+		+wh(100%)
+		background-color: rgba($black,.3)
+		position: absolute
+		left: 0
+		top: 0
 	&-left
 		@extend %df
 		flex-direction: column
@@ -1192,8 +1209,9 @@ body
 				margin-top: 10px
 				font-family: $f_reg
 	&-right
-		height: 697px
-		padding-right: 10px
+		height: calc(100vh - 100px)
+		padding: 10px 20px 10px 50px
+		background-color: #fff
 		overflow: auto
 		.select
 			width: 188px
@@ -1228,20 +1246,21 @@ body
 	.col
 		&:first-child
 			padding-right: 125px
+			.row
+				@extend %df
+				align-items: flex-end
+				.input-block
+					width: 400px
+					input
+						&::placeholder
+							font-family: $f_italic
+					&:first-child
+						margin-right: 10px
 	.checkbox
 		margin-bottom: 20px
 		span
 			font-family: $f_bold
-	.row
-		@extend %df
-		align-items: flex-end
-		.input-block
-			width: 400px
-			input
-				&::placeholder
-					font-family: $f_italic
-			&:first-child
-				margin-right: 10px
+
 .tabs
 	width: 810px
 	margin-top: 20px
@@ -1289,15 +1308,33 @@ body
 .codes
 	padding-left: 50px
 	&-title
-		margin-bottom: 20px
+		margin-bottom: 30px
 		font-size: 20px
 		font-family: $f_bold
 		color: #657690
 	.row
 		@extend %dfa
+		margin-bottom: 20px
 	&-number
+		margin-right: 10px
+		font-family: $f_bold
+	&-input,&-point
+		margin-right: 5px
+		font-family: $f_normal
+		font-size: 28px
 	&-input
+		width: 20px
+		padding-bottom: 5px
+		border-bottom: 1px solid rgba($black,.5)
+		text-transform: uppercase
+		text-align: center
 	&-point
+		margin-bottom: -5px
+	&-comment
+		margin-left: 30px
+		font-family: $f_italic
+	&-button
+		margin-top: 40px
 
 
 

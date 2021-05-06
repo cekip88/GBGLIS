@@ -129,22 +129,23 @@ body
 			background-color: rgba(#939AA0,.3)
 	&-button
 		@extend %dfc
-		position: absolute
 		top: -4px
-		z-index: 1
-		span
+		&,&:before
+			z-index: 1
+		&,&:after
+			position: absolute
+		&:before,&:after
+			+af
+		&:before
 			+wh(34px,20px)
 			border-radius: 3.5px
 			border: 1px solid #939AA0
 			background-color: #fff
 			position: relative
-			z-index: 1
 		&:after
-			+af
 			+wh(7px)
 			background-color: #949BA1
 			transform: rotate(45deg)
-			position: absolute
 			bottom: -3px
 	&-values
 		@extend %dfa
@@ -163,7 +164,6 @@ body
 				top: -10px
 				left: 0
 				right: 0
-
 
 .login
 	+wh(100vw,100vh)
@@ -516,6 +516,7 @@ body
 	left: 0
 	right: 0
 	top: 60px
+	z-index: 101
 	transition: .5s
 	&.active
 		opacity: 1

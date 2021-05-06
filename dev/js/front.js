@@ -148,7 +148,6 @@ class Front {
     }
   }
   statusValuesShow(statusInput,value = null){
-    console.log(value)
     let statusBtn = statusInput.closest('.bag-nav-btn');
     let text = statusBtn.querySelector('.text');
 
@@ -189,6 +188,42 @@ class Front {
     }
   }
 
+  swipeScroll(){
+    const _ = this;
+    let swipeItems = document.querySelectorAll('.scroll-button');
+    if (swipeItems.length > 0){
+      swipeItems.forEach(function (item){
+        console.log(item)
+        item.addEventListener('touchstart', function (e){
+          console.log('start')
+          _.handleSwipeStart(e,item)
+        });
+        item.addEventListener('touchmove',function (e){
+          console.log('move')
+          _.handleSwipeMove(e,item)
+        });
+        item.addEventListener('touchend',function (){
+          console.log('end')
+          _.handleSwipeEnd(item)
+        });
+      })
+    }
+  }
+  handleSwipeStart(e,item){
+    console.log(item)
+    let startPosition = e.changedTouches[0]["clientX"];
+    item.setAttribute('data-pos',startPosition);
+  }
+  handleSwipeMove(e,item){
+    const _ = this;
+    let currentCursorPosition = e.changedTouches[0]["clientX"];
+    console.log(item)
+  }
+  handleSwipeEnd(item){
+    const _ = this;
+
+  }
+
   init(){
     const _ = this;
     _.selectHandlers();
@@ -197,6 +232,7 @@ class Front {
     _.detailsHandler();
     _.patientHandlers();
     _.statusHandlers();
+    _.swipeScroll();
     setTimeout(function (){_.statusValuesShow(document.querySelector('.Patient-btn'),0)},4000)
   }
 }

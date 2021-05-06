@@ -1195,6 +1195,8 @@ body
 		height: 697px
 		padding-right: 10px
 		overflow: auto
+		.select
+			width: 188px
 	&-title
 		color: #657690
 		font-family: $f_bold
@@ -1209,13 +1211,6 @@ body
 				margin-right: 10px
 				&:last-child
 					margin-right: 0
-		&-first
-			.input
-				&-block
-					flex-shrink: 0
-					&:last-child
-						flex-shrink: 1
-						width: 100%
 	.line
 		width: 100%
 		height: 2px
@@ -1291,7 +1286,18 @@ body
 		position: relative
 
 
-
+.codes
+	padding-left: 50px
+	&-title
+		margin-bottom: 20px
+		font-size: 20px
+		font-family: $f_bold
+		color: #657690
+	.row
+		@extend %dfa
+	&-number
+	&-input
+	&-point
 
 
 

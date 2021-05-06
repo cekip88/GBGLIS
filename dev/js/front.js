@@ -164,7 +164,18 @@ class Front {
     }
 
     if (value <= 50) {
-      right.setAttribute('style',`transform:rotate(${value * 3.6}deg)`)
+      let leftStyle = left.getAttribute('style');
+      if (leftStyle) {
+        leftStyle = leftStyle.split('deg')[0];
+        leftStyle = parseInt(leftStyle.split('(')[1]);
+      }
+      if (leftStyle) {
+        left.setAttribute('style','transform:rotate(0deg)');
+        setTimeout(function (){
+          right.setAttribute('style',`transform:rotate(${value * 3.6}deg)`)
+        },250)
+      }
+      else right.setAttribute('style',`transform:rotate(${value * 3.6}deg)`);
     }
     if (value > 50) {
       right.setAttribute('style',`transform:rotate(180deg)`);

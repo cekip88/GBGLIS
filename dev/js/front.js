@@ -188,6 +188,36 @@ class Front {
     }
   }
 
+  verify(){
+    let btn = document.querySelector('.verify-btn');
+    if (btn) {
+      btn.addEventListener('click',function (){
+        document.querySelector('body').classList.add('verify');
+      })
+    }
+  }
+  verifySuccess(){
+    let btn = document.querySelector('.verify-status button');
+    if (btn) {
+      btn.addEventListener('click',function (){
+        document.querySelector('body').classList.remove('verify');
+        document.querySelector('.verify-success').classList.add('active');
+        document.querySelector('.first-screen').classList.add('active');
+        document.querySelector('.bag').classList.remove('active');
+        document.querySelector('.start').classList.remove('active');
+      })
+    }
+  }
+  newMdl(){
+    let btn = document.querySelector('.new-mdl');
+    if (btn) {
+      btn.addEventListener('click',function (){
+        btn.closest('.first-screen').classList.remove('active');
+        document.querySelector('.start').classList.add('active');
+      })
+    }
+  }
+
   swipeScroll(){
     const _ = this;
     let swipeItems = document.querySelectorAll('.scroll-button');
@@ -226,12 +256,15 @@ class Front {
 
   init(){
     const _ = this;
+    _.newMdl();
     _.selectHandlers();
     _.pageSelectorsHandlers();
     _.bagHandlers();
     _.detailsHandler();
     _.patientHandlers();
     _.statusHandlers();
+    _.verify();
+    _.verifySuccess();
     _.swipeScroll();
     setTimeout(function (){_.statusValuesShow(document.querySelector('.Patient-btn'),0)},4000)
   }

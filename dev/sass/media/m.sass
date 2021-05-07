@@ -37,7 +37,7 @@ body
 			margin-right: 5px
 			font-family: 'icons'
 			font-size: 13px
-	&.verify
+	&.verify-btn
 		background-color: #48A0A1
 		border-color: #48A0A1
 		color: #fff
@@ -248,6 +248,18 @@ body
 			line-height: 1.6
 			color: #F6F7F9
 
+.time
+	&>input
+		text-align: center
+	&-radio
+		@extend %df
+		label
+			padding: 0 5px 2px
+			border-radius: 10px
+			transition: .35s
+		input:checked~label
+			background-color: #657690
+			color: #fff
 
 
 .head
@@ -293,6 +305,74 @@ body
 
 .info-bar
 	@extend %dfa
+
+.first-screen,.start
+	width: 100%
+	position: absolute
+	top: 0
+	left: 0
+	transform: translateY(100vh)
+	transition: .35s
+	&.active
+		transform: translateY(0)
+
+.first-screen
+	position: relative
+	.aside
+		width: 300px
+		background-color: #E0E2E3
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		button
+			@extend %dfa
+			width: 100%
+			padding: 22px 45px 13px
+			border-bottom: 2px solid #B7BBBE
+			.icon
+				width: 10px
+				height: 27px
+				background-color: #000
+				margin-right: 10px
+			.text
+				color: #505556
+				font-family: $f_bold
+				font-size: 18px
+	.center
+		@extend %dfc
+		height: calc(100vh - 90px)
+.new-button
+	@extend %dfa
+	+wh(230px,220px)
+	margin-right: 20px
+	padding-bottom: 30px
+	flex-direction: column
+	justify-content: flex-end
+	border-radius: 39px
+	border: 2px solid #449E9F
+	&,span
+		transition: .35s
+	&:last-child
+		margin-right: 0
+	&:hover
+		background-color: #449E9F
+		span
+			color: #fff
+	.img
+		+wh(125px,100px)
+		margin-top: auto
+		img
+			+wh(100%)
+			object-fit: cover
+
+	path
+		fill: #657690
+	span
+		margin-top: auto
+		font-size: 22px
+		font-family: $f_normal
+		color: #505556
 
 
 .start
@@ -510,7 +590,7 @@ body
 	background-color: #fff
 	opacity: 0
 	visibility: hidden
-	border: 1px solid #B7BBBE
+	border: 2px solid #B7BBBE
 	transform: translateY(100%)
 	position: absolute
 	left: 0
@@ -556,6 +636,8 @@ body
 			font-family: $f_bold
 			font-size: 17px
 			color: #B7BBBE
+			position: relative
+			z-index: 1
 			.value
 				display: none
 			&-status
@@ -567,7 +649,7 @@ body
 				.text
 					@extend %dfc
 					+wh(calc(100% - 8px))
-					border: 2px solid #C0C5CA
+					border: 1px solid #C0C5CA
 					border-radius: 100%
 					font-size: 12px
 					font-family: $f_bold
@@ -653,15 +735,15 @@ body
 	&-body
 		@extend %df
 		height: calc(100% - 67px)
-		margin-top: -55px
-		padding-top: 75px
-		padding-left: 60px
+		margin-top: -54px
 		padding-bottom: 18px
 		background-color: #FBFDFF
 		overflow: hidden
 .page
 	@extend %df
 	flex: 0 0 100%
+	padding-top: 75px
+	padding-left: 60px
 	padding-right: 60px
 	overflow: hidden
 	transition: .35s ease
@@ -679,20 +761,19 @@ body
 			&:first-child
 				flex: 0 0 313px
 				padding-right: 50px
-		.table
-			width: 700px
-			border-collapse: collapse
-			tr
-				span
-					@extend %dfc
-					min-height: 43px
-					font-weight: 500
-				&:last-child
-					span
-						border-bottom: 1px solid #C0C5CA
-			td
-				span
-					font-family: $f_bold
+	.col
+		padding-top: 10px
+		position: relative
+		&:after
+			+wh(2px,100%)
+			+af
+			position: absolute
+			right: 0
+			top: 0
+			background-color: #C0C5CA
+		&:last-child
+			&:after
+				content: none
 .input
 	&-block
 		margin-bottom: 20px
@@ -783,19 +864,6 @@ body
 			.input
 				input[type='text']
 					width: 85px
-.col
-	padding-top: 10px
-	position: relative
-	&:after
-		+wh(2px,100%)
-		+af
-		position: absolute
-		right: 0
-		top: 0
-		background-color: #C0C5CA
-	&:last-child
-		&:after
-			content: none
 .spec
 	padding-top: 0
 	&-title
@@ -815,6 +883,45 @@ body
 			transform: rotate(45deg)
 			position: absolute
 			right: -11px
+			z-index: 1
+	&-hover
+		@extend %dfa
+		+wh(110px,36px)
+		padding: 0 23px
+		border-radius: 18px
+		background-color: #fff
+		border: 1px solid #C0C5CA
+		opacity: 0
+		visibility: hidden
+		position: absolute
+		right: -50px
+		top: -36px
+		z-index: 1
+		transition: .35s
+		&:before
+			margin-right: 10px
+			content: '\p'
+			font-family: 'icons'
+			color: #449E9F
+		span
+			font-size: 12px
+			color: #7D8389
+		&-arrow
+			+wh(12px,10px)
+			background-color: #fff
+			overflow: hidden
+			position: absolute
+			bottom: -10px
+			&:after
+				+af
+				+wh(20px)
+				transform: rotate(45deg) translateX(3px)
+				background-color: #C0C5CA
+				position: absolute
+	&:hover
+		.spec-hover
+			opacity: 1
+			visibility: visible
 	&-btns
 		@extend %dfa
 		margin-top: 15px
@@ -933,7 +1040,7 @@ body
 		.tests,.discrepancies
 			width: 470px
 			&-body
-				height: 363px
+				height: 391px
 				border-radius: 4px
 				border: 1px solid #939AA0
 				background-color: #fff
@@ -951,7 +1058,7 @@ body
 					height: 100%
 					padding: 0 30px
 					border-radius: 50px 0 0 50px
-					border: 2px solid #939AA0
+					border: 1px solid #939AA0
 					color: #449E9F
 					font-family: $f_bold
 					position: absolute
@@ -985,26 +1092,26 @@ body
 			margin-right: auto
 			&-body
 				padding: 15px
-				.row
+				.checkbox
 					@extend %df
 					align-items: flex-start
 					margin-bottom: 14px
+					margin-left: 0
 					input[type='text']
 						width: 100%
 						margin-left: 10px
 						border-bottom: 1px solid #505556
-					.checkbox
-						margin-left: 0
-						label
-							font-family: $f_reg
-							&>span
-								&:first-child
-									margin-bottom: auto
+					label
+						font-family: $f_reg
+						&>span
+							&:first-child
+								margin-bottom: auto
 					&:nth-child(n + 2)
-						.checkbox
-							label
-								min-width: 265px
-								white-space: initial
+						label
+							min-width: 265px
+							white-space: initial
+				.checkbox
+					@extend %dfa
 .search
 	&-button
 		min-width: 84px
@@ -1028,8 +1135,8 @@ body
 					cursor: pointer
 .details
 	@extend %df
-	width: calc(100% - 60px)
-	height: 100%
+	+wh(calc(100% - 60px),calc(100% - 75px))
+	margin-top: 75px
 	background-color: #FBFDFF
 	transform: translateY(100%)
 	position: absolute
@@ -1042,28 +1149,11 @@ body
 	.col
 		&-first
 			padding-right: 43px
+			padding-left: 50px
 	.table
-		thead
-			span
-				padding-left: 15px
-				justify-content: flex-start
-		tbody
-			span
-				padding: 5px 0
 		em
-			@extend %dfa
-			width: 100%
-			height: 37px
-			padding-left: 15px
 			background-color: #449E9F
 			color: #fff
-		td
-			&:first-child
-				em
-					border-radius: 18px 0 0 18px
-			&:last-child
-				em
-					border-radius: 0 18px 18px 0
 	&-info
 		margin-top: 15px
 		font-size: 14px
@@ -1110,6 +1200,7 @@ body
 				margin-left: 10px
 				border-bottom: 1px solid #939AA0
 	&-close
+		margin: 10px
 		padding: 10px
 		border-radius: 4px
 		border: 1px solid #939AA0
@@ -1156,6 +1247,38 @@ body
 		&.check
 			.checkbox
 				width: 300px
+
+
+.table-color
+	width: 700px
+	border-collapse: collapse
+	thead
+		span
+			padding-left: 15px
+			justify-content: flex-start
+	tbody
+		span
+			padding: 5px 0
+	span
+		@extend %dfa
+		min-height: 43px
+		font-weight: 500
+	em
+		@extend %dfa
+		width: 100%
+		height: 37px
+		padding-left: 15px
+	tr
+		&:last-child
+			border-bottom: 1px solid #C0C5CA
+	td
+		font-family: $f_bold
+		&:first-child
+			em
+				border-radius: 18px 0 0 18px
+		&:last-child
+			em
+				border-radius: 0 18px 18px 0
 
 
 .new-patient
@@ -1338,4 +1461,209 @@ body
 		margin-top: 40px
 
 
+.notices
+	width: 1106px
+	min-height: 144px
+	margin: 0 auto
+	padding: 12px 34px
+	border-radius: 0 12px 12px 0
+	border: 2px solid #505559
+	background-color: #282B2E
+	position: fixed
+	top: 20px
+	left: 0
+	right: 0
+	z-index: 120
+	opacity: 0
+	visibility: hidden
+	transition: .35s
+	&.active
+		opacity: 1
+		visibility: visible
+	&-title
+		margin-bottom: 15px
+		font-size: 12px
+		font-family: $f_normal
+		text-transform: uppercase
+		color: #449E9F
+	&-item
+		@extend %dfa
+		&-icon
+			width: 15px
+			margin-right: 10px
+		&-text
+			font-family: $f_italic
+			color: #C0C5CA
 
+.verify
+	&-status
+		@extend %dfa
+		flex-direction: column
+		padding: 12px 50px 18px
+		border-radius: 12px 0 0 12px
+		background-color: #282B2E
+		position: fixed
+		top: 70px
+		right: 0
+		z-index: 120
+		transform: translateX(100%)
+		transition: .35s
+		&-title
+			margin-bottom: 13px
+			font-size: 12px
+			color: #449E9F
+			text-transform: uppercase
+		button
+			@extend %dfc
+			+wh(137px,37px)
+			border-radius: 4px
+			background-color: #449E9F
+			color: #fff
+	&-success
+		@extend %df
+		align-items: flex-start
+		position: absolute
+		top: 0
+		right: 0
+		z-index: 120
+		transition: .35s
+		transform: translateX(100%)
+		&.active
+			transform: translateX(0)
+		.icon
+			@extend %dfc
+			+wh(80px)
+			background-color: #659255
+			color: #fff
+			font-size: 28px
+			font-family: 'icons'
+		.col
+			width: 325px
+		.top,.bottom
+			padding: 12px 30px 25px 23px
+		.top
+			border: 1px solid #939AA0
+			background-color: #fff
+			.title
+				margin-bottom: 10px
+				font-family: $f_normal
+				font-size: 20px
+				color: #659255
+			p
+				margin-bottom: 15px
+			strong
+				font-family: $f_bold
+				text-transform: uppercase
+			button
+				@extend %dfa
+				font-family: $f_bold
+				em
+					margin-right: 5px
+		.bottom
+			background-color: #505559
+			.title
+				margin-bottom: 20px
+				font-family: $f_bold
+				color: #969A9F
+			p
+				display: inline-flex
+				align-items: center
+				color: #F5F7F9
+				position: relative
+				em
+					font-family: $f_italic
+					color: #D0D4D9
+				.green
+					font-size: 11px
+					position: absolute
+					top: -12px
+					right: -30px
+					color: #72B05C
+
+.verify
+	&,.head,.info-bar,.client-button,.bag-title-row,.bag-body,.search-button
+		background-color: #34383b!important
+	.head button,.head a,.page-2 .input-block button,.bag-nav-btn
+		color: $verify-white!important
+	.bag-nav-btn.active span,.codes-input,.codes-comment
+		color: #B7BBBE!important
+	.head a,.head button
+		path
+			fill: $verify-white!important
+	.head-logo,.client-tasks li,.col
+		&:after
+			background-color: $verify-white!important
+	.spec-btns,.client-change,.tests-body .add,.search-button,.search-results button,.codes-button,.codes-title
+		opacity: .3
+	.bag-title-row:after
+		background: none
+	.client-button,.bag,.bag-nav-btn-status .text,.page-2 .table tr:last-child span,.tabs-body,.tabs-control label,.codes-input
+		border-color: $verify-white!important
+	.verify-gray
+		&,button,input,textarea
+			background-color: #34383b!important
+			border-color: $verify-white!important
+			color: $verify-white!important
+	.bag,.bag-nav-btn-status:before
+		background-color: $verify-white!important
+	.head .head-logout
+		background-color: $verify-white!important
+		color: #000!important
+	.client-tasks li
+		span
+			color: #fff
+	.spec
+		&-title
+			&:before
+				margin-left: auto
+				margin-right: 20px
+				content: '\p'
+				font-family: 'icons'
+				color: #449E9F
+				order: 2
+	.time-radio
+		input:checked ~ label
+			background-color: #449E9F
+	.tests-body,.tests-body .row,.tests-title,.discrepancies-body
+		background-color: #34383b!important
+		&,label span
+			border-color: $verify-white!important
+	.checkbox
+		input:checked
+			& ~ label
+				color: #fff
+				span:first-child
+					background-color: #fff!important
+					&:before
+						background-color: #679357!important
+			& ~ input
+				border-color: #fff
+				color: #fff
+	.scroll
+		&-line
+			&:after
+				background-color: rgba(#fff,.5)
+		&-values
+			.active
+				color: #fff!important
+	.bag-nav-btn-status .text
+		border-width: 2px
+	.details-clinical
+		transform: translate(50%,-100%)
+	.page-2 .input-block .status
+		background-color: transparent
+	.search-results-table
+		tr.active
+			em
+				background-color: #449E9F!important
+				color: #fff!important
+	.tabs>input[type='radio']
+		&:first-child:checked ~ .tabs-control label:first-child,
+		&:nth-child(2):checked ~ .tabs-control label:nth-child(2),
+		&:nth-child(3):checked ~ .tabs-control label:nth-child(3)
+			color: #B7BBBE!important
+	.verify-status
+		transform: translateX(0)
+	.bag-title-btns
+		opacity: 0
+		visibility: hidden

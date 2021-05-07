@@ -2,13 +2,11 @@ extends template/main
 block content
 	header.head
 		a.head-logo
-			+img('logo_gbglis.svg')
+			include ../img/logo_gbglis.svg
 		button.head-mdl
-			+img('logo_mdl.svg')
-		button.head-njh
-			span NJH
-		button.head-user
-			span bbogomolnik
+			include ../img/logo_mdl.svg
+		button.head-njh NJH
+		button.head-user bbogomolnik
 		a(href='/login').head-logout
 			span Logout
 	main.body
@@ -17,7 +15,7 @@ block content
 				h2.client-name JOHNSON MEDICAL CLINIC
 				button(type="button").client-change Change
 			.client-actions
-				button(type="button").button Client Info
+				button(type="button").button.client-button Client Info
 				.select
 					input(type='hidden')
 					button.select-head.button
@@ -50,6 +48,20 @@ block content
 					span 21-G000001, 21-S000002
 			.client-view
 				span View Only
+		.first-screen.active
+			.aside
+				button
+					.icon
+					.text Specimens
+			.center
+				button.new-button.new-mdl
+					.img
+						+img('mdl.svg')
+					span New MDL #
+				button.new-button.new-bag
+					.img
+						+img('mdl.svg')
+					span New Bag
 		.start
 			h2.start-title
 				span Start Accesioning
@@ -134,7 +146,7 @@ block content
 				.bag-title-btns
 					button.button.cancel Cancel
 					button(disabled).button.hold.inactive Hold
-					button.button.verify Verify
+					button.button.verify-btn Verify
 			.bag-nav-row
 				.bag-nav-btns
 					button(data-pos='0').bag-nav-btn.Specimen-btn.active
@@ -185,7 +197,7 @@ block content
 									span No Tracking
 							.variant
 								span Fedex
-						.input-block
+						.input-block.verify-gray
 							.input-block-title
 								span Tracking Comments
 								span.red *
@@ -205,6 +217,9 @@ block content
 					.col.spec
 						.spec-title
 							span Specimen 1
+							button(type='button').spec-hover
+								span Take Photo
+								.spec-hover-arrow
 						.spec-btns
 							button.add-once
 								span.before
@@ -244,7 +259,7 @@ block content
 								.scroll-line
 									button(type='button').scroll-button
 								.scroll-values
-									span 10/22
+									span.active 10/22
 									span 10/21
 									span 10/20
 									span 10/19
@@ -254,7 +269,13 @@ block content
 								input
 								span :
 								input
-								span am pm
+								.time-radio
+									div
+										input(type='radio' name='timeType' checked)#am
+										label(for='am') am
+									div
+										input(type='radio' name='timeType')#pm
+										label(for='pm') pm
 						.collection-row
 							.input-block
 								.input-block-title
@@ -283,7 +304,7 @@ block content
 											button(type='button').select-option.button Blue
 											button(type='button').select-option.button Black
 											button(type='button').select-option.button White
-							.input-block
+							.input-block.verify-gray
 								.input-block-title
 									span Turbidity
 								.input
@@ -294,7 +315,7 @@ block content
 										.select-body
 											button(type='button').select-option.button Variant 1
 											button(type='button').select-option.button Variant 2
-							.input-block
+							.input-block.verify-gray
 								.input-block-title
 									span Cold Pack
 								.input
@@ -305,7 +326,7 @@ block content
 										.select-body
 											button(type='button').select-option.button Variant 1
 											button(type='button').select-option.button Variant 2
-							.input-block
+							.input-block.verify-gray
 								.input-block-title
 									span Location
 								.input
@@ -316,7 +337,7 @@ block content
 										.select-body
 											button(type='button').select-option.button Variant 1
 											button(type='button').select-option.button Variant 2
-							.input-block
+							.input-block.verify-gray
 								.input-block-title
 									span Method
 								.input
@@ -327,7 +348,7 @@ block content
 										.select-body
 											button(type='button').select-option.button Variant 1
 											button(type='button').select-option.button Variant 2
-						.collection-row
+						.collection-row.verify-gray
 							.input-block.method-comments
 								.input-block-title
 									span Method Comments
@@ -370,41 +391,38 @@ block content
 								.input-block-title
 									span Discrepancies
 								.discrepancies-body
-									.row
-										.checkbox
-											input(type='checkbox')#dis-1
-											label(for='dis-1')
-												span
-												span Additional Document
+									.checkbox
+										input(type='checkbox')#dis-1
+										label(for='dis-1')
+											span
+											span Additional Document
 										input(type='text')
-									.row
-										.checkbox
-											input(type='checkbox')#dis-2
-											label(for='dis-2')
-												span
-												span Conflict with panel accessioned.
+									.checkbox
+										input(type='checkbox')#dis-2
+										label(for='dis-2')
+											span
+											span Conflict with panel accessioned.
 										input(type='text')
-									.row
-										.checkbox
-											input(type='checkbox')#dis-3
-											label(for='dis-3')
-												span
-												span Specimen vial unlabeled & packaged with another unlabeled MDL. SPECIFY MDL#.
+									.checkbox
+										input(type='checkbox')#dis-3
+										label(for='dis-3')
+											span
+											span Specimen vial unlabeled & packaged with another unlabeled MDL. SPECIFY MDL#.
 										input(type='text')
 
 				.page.page-2
 					form.search.col
-						.input-block
+						.input-block.verify-gray
 							.input-block-title
 								span Name
 							.input
 								input(type='text' placeholder='First or Last')
-						.input-block
+						.input-block.verify-gray
 							.input-block-title
 								span DOB
 							.input
 								input(type='text' placeholder='mm/dd/yyyy')
-						.input-block
+						.input-block.verify-gray
 							.input-block-title
 								span ID
 							.input
@@ -414,7 +432,7 @@ block content
 									button Client
 						button.button.search-button
 					.col.search-results
-						table.table.search-results-table
+						table.search-results-table.table-color
 							thead
 								tr
 									th
@@ -428,35 +446,45 @@ block content
 									th
 										span Phone
 							tbody
+								tr(data-target='details').active
+									td
+										span
+											em 00000000
+									td
+										span
+											em John Doe
+									td
+										span
+											em 1/1/1990
+									td
+										span
+											em 000-00-0000
+									td
+										span
+											em 000-000-0000
 								tr(data-target='details')
 									td
-										span 00000000
-									td
-										span John Doe
-									td
-										span 1/1/1990
-									td
-										span 000-00-0000
-									td
-										span 000-000-0000
-								tr
+										span
+											em 00000000
 									td
 										span
+											em John Doe
 									td
 										span
+											em 1/1/1990
 									td
 										span
+											em 000-00-0000
 									td
 										span
-									td
-										span
+											em 000-000-0000
 						button.add-once.add-patient
 							span.before
 							span Add New Patient
 					.details
 						button.details-close
 						.col.col-first
-							table.table
+							table.table.table-color
 								thead
 									tr
 										th
@@ -588,7 +616,7 @@ block content
 													span Lorem ipsum dolor
 											input(type='text')
 
-						.col
+						.col.details-clinical
 							form.clinical
 								.clinical-title Clinical Information
 								.row
@@ -687,7 +715,7 @@ block content
 											label(for='clinical-16')
 												span
 												span Lactating
-								.clinical-block
+								.clinical-block.verify-gray
 									.clinical-block-title Notes
 									textarea.clinical-block-textarea
 				.page.page-3.billing
@@ -1025,5 +1053,32 @@ block content
 							.button-row
 								button.button.new-patient-button Create Patient
 					.new-patient-bgc
+			.verify-status
+				h6.verify-status-title Verification in progress...3 of 3
+				button Commit
+		.notices
+			h6.notices-title Notices
+			ul.notices-list
+				li.notices-item
+					.notices-item-icon
+					.notices-item-text Eligibility insurance ran on 10/16/20
+		.verify-success
+			.icon O
+			.col
+				.top
+					.title Success
+					p The new bag with&nbsp;
+						strong MDL #100000000&nbsp;
+						| has been added.
+					button
+						em >
+						span Print 6 labels...
+				.bottom
+					.title Stats
+					p
+						em Completion time:
+						span 1 min 45 secs
+						i.green - 55 secs
+
 	footer.foot
 		+inc('js','front.js')

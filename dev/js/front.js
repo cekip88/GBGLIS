@@ -242,35 +242,59 @@ class Front {
     let swipeItems = document.querySelectorAll('.scroll-button');
     if (swipeItems.length > 0){
       swipeItems.forEach(function (item){
-        console.log(item)
-        item.addEventListener('touchstart', function (e){
-          console.log('start')
+        item.addEventListener('dragstart', function (e){
           _.handleSwipeStart(e,item)
         });
-        item.addEventListener('touchmove',function (e){
-          console.log('move')
+        item.addEventListener('drag',function (e){
           _.handleSwipeMove(e,item)
         });
-        item.addEventListener('touchend',function (){
-          console.log('end')
+        item.addEventListener('dragend',function (){
           _.handleSwipeEnd(item)
         });
       })
     }
   }
   handleSwipeStart(e,item){
-    console.log(item)
-    let startPosition = e.changedTouches[0]["clientX"];
-    item.setAttribute('data-pos',startPosition);
+    let startPosition = e.clientX;
+    item.setAttribute('data-start',startPosition);
+    let data = e.dataTransfer;
+    let img = document.createElement('IMG');
+    data.setDragImage(img,0,0);
   }
   handleSwipeMove(e,item){
     const _ = this;
-    let currentCursorPosition = e.changedTouches[0]["clientX"];
-    console.log(item)
+    let currentCursorPosition = e.clientX;
+    let startPosition = parseInt(item.getAttribute('data-start'));
+    let prevPos = item.getAttribute('data-pos') ? parseInt(item.getAttribute('data-pos')) : 0;
+    let drag = startPosition - currentCursorPosition;
+
+    item.setAttribute('data-start',e.clientX)
+    let dragMove = prevPos - drag;
+
+    if (dragMove < 0) return;
+    else if (dragMove > (item.parentElement.offsetWidth - item.offsetWidth)) return;
+    item.setAttribute('data-pos',dragMove);
+    item.setAttribute('style',`transform:translateX(${dragMove}px)`)
   }
   handleSwipeEnd(item){
     const _ = this;
-
+    let btnParent = item.parentElement;
+    let values = btnParent.nextElementSibling;
+    let input = btnParent.previousElementSibling;
+    let count = values.children.length - 1;
+    let partLength = (btnParent.offsetWidth - item.offsetWidth) / count;
+    let pos = parseInt(item.getAttribute('data-pos'));
+    let partCount = pos > partLength ? (pos - (pos % partLength)) / partLength : 0;
+    let endPos = 0;
+    if (pos - (partCount * partLength) <= partLength / 2) {
+      endPos = partLength * partCount;
+    } else {
+      endPos = partLength * (partCount + 1);
+      partCount += 1;
+    }
+    item.setAttribute('data-pos',endPos);
+    item.setAttribute('style',`transform:translateX(${endPos}px)`);
+    input.value = btnParent.nextElementSibling.children[partCount].textContent;
   }
 
   init(){

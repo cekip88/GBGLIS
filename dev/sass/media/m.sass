@@ -125,11 +125,11 @@ body
 			+af
 			+wh(calc(100% - 32px),12px)
 			margin-left: 16px
-			margin-bottom: 7px
+			margin-bottom: 9px
 			background-color: rgba(#939AA0,.3)
 	&-button
 		@extend %dfc
-		top: -4px
+		top: -5px
 		&,&:before
 			z-index: 1
 		&,&:after
@@ -153,15 +153,17 @@ body
 		text-align: center
 		span
 			width: 45px
+			font-family: $f_normal
+			font-size: 13px
 			position: relative
 			&:before
 				width: 2px
-				height: 7px
+				height: 9px
 				margin: 0 auto
 				background-color: #939AA0
 				content: ''
 				position: absolute
-				top: -10px
+				top: -12px
 				left: 0
 				right: 0
 
@@ -1067,7 +1069,7 @@ body
 		.tests,.discrepancies
 			width: 470px
 			&-body
-				height: 391px
+				height: 381px
 				border-radius: 4px
 				border: 1px solid #939AA0
 				background-color: #fff
@@ -1086,10 +1088,11 @@ body
 					padding: 0 30px
 					border-radius: 50px 0 0 50px
 					border: 1px solid #939AA0
+					border-right: none
 					color: #449E9F
 					font-family: $f_bold
 					position: absolute
-					top: 0
+					top: -1px
 					right: 0
 					transition: .35s
 					&:hover

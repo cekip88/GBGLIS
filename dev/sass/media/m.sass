@@ -306,7 +306,7 @@ body
 .info-bar
 	@extend %dfa
 
-.first-screen,.start
+.first-screen,.start,.client-search
 	width: 100%
 	position: absolute
 	top: 0
@@ -330,11 +330,19 @@ body
 			width: 100%
 			padding: 22px 45px 13px
 			border-bottom: 2px solid #B7BBBE
+			&,.text
+				transition: .35s
+			&:hover
+				background-color: #657690
+				.text
+					color: #fff
 			.icon
-				width: 10px
 				height: 27px
 				background-color: #000
 				margin-right: 10px
+				img
+					height: 100%
+					display: block
 			.text
 				color: #505556
 				font-family: $f_bold
@@ -363,8 +371,7 @@ body
 		+wh(125px,100px)
 		margin-top: auto
 		img
-			+wh(100%)
-			object-fit: cover
+			height: 100%
 
 	path
 		fill: #657690
@@ -517,6 +524,8 @@ body
 .info-bar
 	padding: 5px 0
 	background-color: #fff
+	position: relative
+	z-index: 1
 .client
 	@extend %dfa
 	padding-right: 60px
@@ -628,6 +637,8 @@ body
 			@extend %dfi
 			padding-top: 10px
 			padding-left: 60px
+			position: relative
+			z-index: 1
 		&-btns
 			@extend %dfa
 		&-btn
@@ -637,7 +648,6 @@ body
 			font-size: 17px
 			color: #B7BBBE
 			position: relative
-			z-index: 1
 			.value
 				display: none
 			&-status
@@ -708,6 +718,20 @@ body
 						border-top-left-radius: 22.5px
 						border-bottom-left-radius: 22.5px
 						transform-origin: center right
+			.incomplete-row
+				display: none
+				align-items: center
+				position: absolute
+				top: -3px
+				left: 55px
+				img
+					height: 13px
+					display: block
+				span
+					font-family: $l_bold
+					text-transform: uppercase
+					color: #8C856B
+					font-size: 8px
 			&.ready
 				.text
 					border: none
@@ -721,6 +745,9 @@ body
 						border: 4px solid rgba(#C0C5CA,.5)
 				&>span
 					color: #505556
+			&.incomplete
+				.incomplete-row
+					display: flex
 		&-next
 			@extend %dfa
 			margin-right: 40px
@@ -1495,6 +1522,7 @@ body
 			font-family: $f_italic
 			color: #C0C5CA
 
+
 .verify
 	&-status
 		@extend %dfa
@@ -1579,8 +1607,6 @@ body
 					top: -12px
 					right: -30px
 					color: #72B05C
-
-.verify
 	&,.head,.info-bar,.client-button,.bag-title-row,.bag-body,.search-button
 		background-color: #34383b!important
 	.head button,.head a,.page-2 .input-block button,.bag-nav-btn
@@ -1667,3 +1693,156 @@ body
 	.bag-title-btns
 		opacity: 0
 		visibility: hidden
+
+.client
+	&-search
+		@extend %dfc
+		height: 100vh
+		&-inner
+			@extend %dfa
+			margin-top: -50px
+			flex-direction: column
+			position: relative
+		.round
+			@extend %dfc
+			+wh(133px)
+			margin-bottom: 22px
+			&,&-inner
+				border: 1px solid #D4D8DB
+				border-radius: 100%
+			&-inner
+				+wh(33px)
+				border-width: 2px
+		&-title
+			@extend %dfa
+			margin-bottom: 70px
+			flex-direction: column
+			font-size: 33px
+			color: #505556
+			&:after
+				+af
+				+wh(700px,4px)
+				margin-top: 20px
+				background: linear-gradient(90deg,#F6F7F9,#C0C5CA,#F6F7F9)
+		&-input
+			position: relative
+			margin-bottom: 53px
+			input
+				+wh(495px,67px)
+				padding: 0 30px
+				border: 1px solid #939AA0
+				border-radius: 33.5px
+				background-color: #fff
+				font-family: $f_normal
+				font-size: 18px
+				color: #505556
+				&::placeholder
+					font-family: $f_italic
+					color: #838889
+					font-size: 18px
+			button
+				position: absolute
+				right: 18.5px
+				top: 18.5px
+				transition: .35s
+				&:hover
+					transform: scale(1.15)
+				img
+					+wh(30px)
+		.scan
+			@extend %df
+			align-items: flex-start
+			img
+				height: 60px
+				margin-right: 10px
+				display: block
+			&-text
+				strong
+					margin-bottom: 3px
+					display: block
+					color: #505556
+					font-family: $f_bold
+				span
+					font-family: $f_italic
+					font-size: 18px
+					color: #838889
+		&-result
+			opacity: 0
+			visibility: hidden
+			transition: .35s
+			position: absolute
+			bottom: -210px
+			.inner
+				+wh(786px,314px)
+				padding: 43px 53px
+				overflow: auto
+				border: 4px solid #A4AFC0
+				background-color: #FBFDFF
+			&.active
+				opacity: 1
+				visibility: visible
+			&:before
+				+wh(25px)
+				+af
+				margin: 0 auto
+				background-image: url(img/arrow-top.jpg)
+				background-position: center
+				background-size: cover
+				position: absolute
+				top: -25px
+				right: 0
+				left: 0
+			.row
+				@extend %dfa
+				padding: 10px
+				position: relative
+				&:after
+					+af
+					+wh(calc(100% + 20px),1px)
+					background-color: #D4D8DB
+					position: absolute
+					bottom: 0
+					left: -10px
+			.id
+				margin-right: 30px
+				font-family: $f_bold
+				color: #449E9F
+				font-size: 18px
+			.place
+				font-family: $f_normal
+				font-size: 18px
+			.results
+				@extend %df
+				flex-direction: column
+				align-items: flex-start
+				button
+					@extend %dfa
+					height: 27px
+					margin-bottom: 5px
+					padding-right: 20px
+					padding-left: 40px
+					border: 1px solid transparent
+					border-radius: 12.5px
+					position: relative
+					&:last-child
+						margin-bottom: 0
+					&,&:before,span
+						transition: .35s
+					&:before
+						@extend %dfc
+						+wh(29px)
+						border-radius: 100%
+						content: '\50'
+						font-family: 'icons'
+						position: absolute
+						left: -1px
+						top: -2px
+					&:hover
+						border-color: #C1C9D4
+						span
+							font-family: $f_bold
+							color: #449E9F
+							text-transform: uppercase
+						&:before
+							background-color: #449E9F
+							color: #fff

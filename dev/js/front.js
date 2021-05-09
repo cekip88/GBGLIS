@@ -206,6 +206,9 @@ class Front {
         document.querySelector('.bag').classList.remove('active');
         document.querySelector('.start').classList.remove('active');
       })
+      document.querySelector('.verify-success .icon').addEventListener('click',function (){
+        document.querySelector('.verify-success').classList.remove('active');
+      })
     }
   }
   newMdl(){
@@ -216,6 +219,22 @@ class Front {
         document.querySelector('.start').classList.add('active');
       })
     }
+  }
+
+
+  handlers(){
+    const _ = this;
+    let searchBtn = document.querySelector('.client-search-input button');
+    if (searchBtn) {
+      let searchRes = document.querySelector('.client-search-result');
+      searchBtn.addEventListener('click',function (e){
+        _.showSearchResults(e,searchRes);
+      })
+    }
+  }
+  showSearchResults(e,searchRes){
+    e.preventDefault();
+    searchRes.classList.add('active');
   }
 
   swipeScroll(){
@@ -256,6 +275,7 @@ class Front {
 
   init(){
     const _ = this;
+    _.handlers();
     _.newMdl();
     _.selectHandlers();
     _.pageSelectorsHandlers();

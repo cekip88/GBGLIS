@@ -52,6 +52,7 @@ block content
 			.aside
 				button
 					.icon
+						+img('aside-icon.jpg')
 					.text Specimens
 			.center
 				button.new-button.new-mdl
@@ -60,7 +61,7 @@ block content
 					span New MDL #
 				button.new-button.new-bag
 					.img
-						+img('mdl.svg')
+						+img('new-bag.jpg')
 					span New Bag
 		.start
 			h2.start-title
@@ -158,6 +159,9 @@ block content
 								span
 							span.text
 						span Specimen(s)
+						.incomplete-row
+							+img('incomplete.jpg')
+							span incomplete
 					button(data-pos='1').bag-nav-btn.Patient-btn
 						input(type='number' value='45').value
 						.bag-nav-btn-status
@@ -167,7 +171,10 @@ block content
 								span
 							span.text
 						span Patient
-					button(data-pos='2').bag-nav-btn.Billing-btn
+						.incomplete-row
+							+img('incomplete.jpg')
+							span incomplete
+					button(data-pos='2').bag-nav-btn.Billing-btn.incomplete
 						input(type='number' value='0').value
 						.bag-nav-btn-status
 							.left
@@ -176,6 +183,9 @@ block content
 								span
 							span.text
 						span Billing
+						.incomplete-row
+							+img('incomplete.jpg')
+							span incomplete
 				button(data-pos='0').bag-nav-next
 					span NEXT
 			.bag-body
@@ -1063,7 +1073,7 @@ block content
 					.notices-item-icon
 					.notices-item-text Eligibility insurance ran on 10/16/20
 		.verify-success
-			.icon O
+			button.icon O
 			.col
 				.top
 					.title Success
@@ -1080,5 +1090,33 @@ block content
 						span 1 min 45 secs
 						i.green - 55 secs
 
+		form.client-search
+			.client-search-inner
+				.round
+					.round-inner
+				h3.client-search-title
+					span Please select a client
+				.client-search-input
+					input(type='text' placeholder='Search by name or ID')
+					button
+						+img('search.jpg')
+				.scan
+					+img('scan.png')
+					.scan-text
+						strong Accessioning:
+						span Scan req QR code
+				.client-search-result
+					.inner
+						.row
+							.id 8993
+							.place JOHNSON MEDICAL CLINIC
+						.row
+							.results
+								button
+									span Atchason, Elizabeth
+								button
+									span Doe, John
+								button
+									span Smith, Bob
 	footer.foot
 		+inc('js','front.js')
